@@ -24,11 +24,11 @@ export default function RootLayout({
                 </a>
               </li>
               <li>
-                <a href="blog" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                <a href="instrumentos" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
                   <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
                   </svg>
-                  blog
+                  instrumentos
                 </a>
               </li>
             </ul>
@@ -36,9 +36,9 @@ export default function RootLayout({
         </aside>
     
         <main className="flex-1 p-8">
-        {children}
         <h1 className="text-2xl font-bold">Welcome to the Dashboard</h1>
         <p className="mt-4 text-gray-700">This is the main content area.</p>
+        {children}
     
         </main>
       </div>
