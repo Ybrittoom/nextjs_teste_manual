@@ -5,8 +5,8 @@ export default async function Page() {
     <form>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base/7 font-semibold text-gray-900">Personal Information</h2>
-          <p className="mt-1 text-sm/6 text-gray-600">Use a permanent address where you can receive email 📩</p>
+          <h2 className="text-base/7 font-semibold text-gray-900">Instrumento</h2>
+          <p className="mt-1 text-sm/6 text-gray-600">Responda as perguntas do formulario</p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
@@ -71,25 +71,27 @@ export default async function Page() {
               <h1 className="mt-1 text-sm/6 text-gray-600">Indique o estado do instrumento</h1>
               <div className="mt-6 space-y-6">
                 <div className="flex items-center gap-x-3">
-                  <input id="push-everything" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
+                  <input id="estado_novo" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
                   <label htmlFor="push-everything" className="block text-sm/6 font-medium text-gray-900">Novo</label>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <input id="push-email" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
+                  <input id="estado_Seminovo" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
                   <label htmlFor="push-email" className="block text-sm/6 font-medium text-gray-900">Seminovo</label>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <input id="push-nothing" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
-                  <label htmlFor="push-nothing" className="block text-sm/6 font-medium text-gray-900">Usado</label>
+                  <input id="estado_usado" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
+                  <label htmlFor="estado_usado" className="block text-sm/6 font-medium text-gray-900">Usado</label>
                 </div>
                 <div className="flex items-center gap-x-3">
-                  <input id="push-nothing" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
-                  <label htmlFor="push-nothing" className="block text-sm/6 font-medium text-gray-900">Precisa de reparos</label>
+                  <input id="estado_reparos" name="push-notifications" type="radio" className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white not-checked:before:hidden checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden"/>
+                  <label htmlFor="estado_reparos" className="block text-sm/6 font-medium text-gray-900">Precisa de reparos</label>
                 </div>
               </div>
 
             </fieldset>
+            
       </div>
+
 
       
 
