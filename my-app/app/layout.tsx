@@ -16,14 +16,6 @@ export default function RootLayout({
           <nav className="mt-4">
             <ul>
               <li>
-                <a href="products" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
-                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h11M9 21V3"></path>
-                  </svg>
-                  products
-                </a>
-              </li>
-              <li>
                 <a href="instrumentos" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
                   <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
@@ -39,6 +31,23 @@ export default function RootLayout({
                   clientes
                 </a>
               </li>
+              <li>
+                <a href="ajuda" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  ajuda
+                </a>
+              </li>
+              <li>
+                <a href="produtos" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  produtos
+                </a>
+              </li>
+
             </ul>
           </nav>
         </aside>
