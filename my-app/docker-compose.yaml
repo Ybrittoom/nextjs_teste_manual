@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - 5432:5432
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+#     networks:
+#       - app-tier
+# networks:
+#   app-tier:
+#     driver: bridge
