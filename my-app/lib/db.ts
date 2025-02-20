@@ -1,7 +1,7 @@
-import { Pool } from 'pg'
-import { config } from 'dotenv'
+import { Pool } from 'pg';
+import { config } from "dotenv";
 
-config()
+config();
 
 export const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
@@ -10,4 +10,5 @@ export const pool = new Pool({
   database: process.env.POSTGRES_DATABASE,
   password: process.env.POSTGRES_PASSWORD,
   port: 5432,
-})
+});
+
