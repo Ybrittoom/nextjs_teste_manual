@@ -5,12 +5,16 @@ import { useState } from "react"
 
 export default function Page() {
     const [ nome, setNome] =  useState('nome produto')
-    const [ valorUnitario, setValorUnitario] = useState('Valor Unitario')
-    const [ validade, setValidade] = useState('Validade')
+    const [ valorUnitario, setValorUnitario] = useState(0)
+    const [ validade, setValidade] = useState('') 
     const [descricao, setDescricao] = useState('Descriçao')
+    const handlSubmit = (event: any) => {
+        event.preventDefault()
+        addProduto(nome, valorUnitario, validade, descricao)
+    }
 
     return (
-        <form>
+        <form onSubmit={handlSubmit}>
             <div className="spcae-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <h2 className="text-base/7 font-semibold text-gray-900">Produtos</h2>

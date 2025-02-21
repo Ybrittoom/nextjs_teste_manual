@@ -1,45 +1,18 @@
 'use client'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 
 export default function Page() {
-  const [form, setForm] = useState({
-    nome: '',
-    endereco: '',
-    nascimento: '',
-    telefone: '',
-    email: '',
-    cpf: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('/api/clientes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      });
-  
-      const text = await response.text(); // Lê a resposta como texto
-      console.log("Resposta do servidor:", text);
-  
-      try {
-        const data = JSON.parse(text); // Tenta converter para JSON
-        console.log("JSON recebido:", data);
-      } catch (error) {
-        console.error("Erro ao converter resposta para JSON:", error);
-      }
-    } catch (error) {
-      console.error("Erro na requisição:", error);
+    const [ nome, setNome] = useState('nome')
+    const [ endereco, setEndereco] = useState('endereço')
+    const [ data_de_nascimento, setDataDeNascimento] = useState('nascimento')
+    const [ numero_de_telefone, setNumeroDeTelefone] = useState()  
+    const [ email, setEmail] = useState('email')
+    const [ CPF, setCPF]
+    const handlSubmit = (event: any) => {
+      event.preventDefault()
+      addCliente(nome, endereco, data_de_nascimento, numero_de_telefone, email, CPF)
     }
-  };
-  
 
   return (
     <form onSubmit={handleSubmit}>

@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   // this is going to be my JSON response
   // const res = await pool.query("select * from produtos where id = ?", [2]);
   const id = 1;
-  const res = await pool.query(`select * from produtos where id = ${id}`);
+  const res = await pool.query(`select * from produto where id = ${id}`);
 
   return NextResponse.json(res)
 }
