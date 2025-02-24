@@ -1,6 +1,6 @@
 'use client'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
 export default function Page() {
     const [ nome, setNome] = useState('nome')
@@ -15,7 +15,7 @@ export default function Page() {
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handlSubmit}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold text-gray-900">Informações do cliente</h2>
@@ -25,7 +25,7 @@ export default function Page() {
             <div className="sm:col-span-3">
               <label htmlFor="nome" className="block text-sm font-medium text-gray-900">Nome</label>
               <div className="mt-2">
-                <input type="text" id="nome" name="nome" value={form.nome} onChange={handleChange} required
+                <input type="text" id="nome" name="nome" value={nome} onChange={(event) => setNome(event.target.value)} required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm" />
               </div>
             </div>
@@ -33,7 +33,7 @@ export default function Page() {
             <div className="col-span-full">
               <label htmlFor="endereco" className="block text-sm font-medium text-gray-900">Endereço</label>
               <div className="mt-2">
-                <input type="text" id="endereco" name="endereco" value={form.endereco} onChange={handleChange} required
+                <input type="text" id="endereco" name="endereco" value={endereco} onChange={(event) => setEndereco(event.target.value)} required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm" />
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function Page() {
             <div className="col-span-full">
               <label htmlFor="nascimento" className="block text-sm font-medium text-gray-900">Data de nascimento</label>
               <div className="mt-2">
-                <input type="date" id="nascimento" name="nascimento" value={form.nascimento} onChange={handleChange} required
+                <input type="date" id="nascimento" name="nascimento" value={data_de_nascimento} onChange={(event) => setDataDeNascimento(event.target.value)} required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm" />
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function Page() {
             <div className="col-span-full">
               <label htmlFor="telefone" className="block text-sm font-medium text-gray-900">Número de Telefone</label>
               <div className="mt-2">
-                <input type="tel" id="telefone" name="telefone" value={form.telefone} onChange={handleChange} required
+                <input type="tel" id="telefone" name="telefone" value={numero_de_telefone} onChange={(event) => setNumeroDeTelefone(event.target.value)} required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm" />
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function Page() {
             <div className="col-span-full">
               <label htmlFor="email" className="block text-sm font-medium text-gray-900">Email</label>
               <div className="mt-2">
-                <input type="email" id="email" name="email" value={form.email} onChange={handleChange} required
+                <input type="email" id="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm" />
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Page() {
             <div className="col-span-full">
               <label htmlFor="cpf" className="block text-sm font-medium text-gray-900">CPF</label>
               <div className="mt-2">
-                <input type="text" id="cpf" name="cpf" value={form.cpf} onChange={handleChange} required
+                <input type="text" id="cpf" name="cpf" value={CPF} onChange={(event) => setCPF(event.target.value)}} required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 sm:text-sm" />
               </div>
             </div>
