@@ -1,0 +1,52 @@
+CREATE TABLE cliente (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    data_de_nascimento DATE NOT NULL,
+    numero_de_telefone varchar(20) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    CPF VARCHAR(11) UNIQUE NOT NULL
+);
+
+insert into cliente(nome, endereco, data_de_nascimento, numero_de_telefone, email, CPF) values 
+	('Diogo', 'Rua Victorio Pansan', '2025-02-21', 19999994999, 'diogoFerreira@gmail.com', '12345678911')
+
+
+create table carro (
+	id serial primary key,
+	fabricante varchar(255) not null,
+	modelo varchar(255) not null,
+	ano_de_fabricaçao varchar(10) not null, 
+	cor varchar(255) not null,
+	quilometros_rodados varchar(255) not null
+)
+
+insert into carro (fabricante, modelo, ano_de_fabricaçao, cor, quilometros_rodados) values
+	('chevrolet', 'Onix', '2019', 'preto', '100')
+
+
+create table produto (
+    id serial primary key,
+    nome varchar(255) not null,
+    valor_unitario decimal(10,2) not null,
+    validade date,
+    descricao varchar(255)
+    
+)
+
+insert into produto(nome, valor_unitario, validade, descricao) values
+('Torta de maracuja', 15.0, '2025-6-10', 'Uma deliciosa torta de maracuja para saborear com a familia')
+
+
+create table instrutor (
+	id serial primary key,
+	nome varchar(255) not null,
+	especialidade varchar(255) not null,
+	data_de_nascimento date not null,
+	endereco varchar(255) not null, 
+	comum varchar(255)
+)
+
+insert into instrutor(nome, especialidade, data_de_nascimento, endereco, comum) values 
+	('Danilo Ruan', 'Violino', '2009-02-14', 'Rua Bernado Guimaraes', 'Virgilio Basso')
+	
