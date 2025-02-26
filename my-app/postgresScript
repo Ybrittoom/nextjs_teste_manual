@@ -50,3 +50,16 @@ create table instrutor (
 insert into instrutor(nome, especialidade, data_de_nascimento, endereco, comum) values 
 	('Danilo Ruan', 'Violino', '2009-02-14', 'Rua Bernado Guimaraes', 'Virgilio Basso')
 	
+create table aluno (
+	id serial primary key,
+	nome varchar(255),
+	nome_do_pai varchar(255),
+	nome_da_mae varchar(255),
+	data_de_nascimento date,
+	cor_da_pele varchar(255)
+)
+
+insert into aluno (nome , nome_do_pai , nome_da_mae, data_de_nascimento , cor_da_pele) values 
+	('Kaua', 'Ze Carlos', 'Sueli', '2008-09-10', 'Preto')
+	
+	
