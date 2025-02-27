@@ -56,6 +56,68 @@ export default function RootLayout({
                 </a>
               </li>
 
+              <li>
+                <a href="materias" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  Materias 
+                </a>
+              </li>
+
+              <li>
+                <a href="livros" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                   livros
+                </a>
+              </li>
+              <li>
+                <a href="filmes" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                   filmes
+                </a>
+              </li>
+
+              <li>
+                <a href="pneus" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                   pneus
+                </a>
+              </li>
+
+              <li>
+                <a href="instrumentos" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                   instrumentos
+                </a>
+              </li>
+
+              <li>
+                <a href="computadores" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  computadores
+                </a>
+              </li>
+
+              <li>
+                <a href="casas" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  casas
+                </a>
+              </li>
+
             </ul>
           </nav>
         </aside>

@@ -63,3 +63,87 @@ insert into aluno (nome , nome_do_pai , nome_da_mae, data_de_nascimento , cor_da
 	('Kaua', 'Ze Carlos', 'Sueli', '2008-09-10', 'Preto')
 	
 	
+
+
+create table materias (
+	id serial primary key,
+	nome varchar(255) not null,
+	descricao varchar(255) not null,
+	ano_letivo varchar(10) not null
+)
+
+insert into materias(nome, descricao , ano_letivo) values 
+	('Matematica', 'materia que estudo os caculos matematicos', '9')
+	
+	
+create table livro (
+	id serial primary key,
+	nome varchar(255) not null,
+	autor varchar(255) not null,
+	assunto varchar(400) not null,
+	resumo varchar(500) not null,
+	data_de_lancamento varchar(255) not null,
+	preco_sugerido varchar(255) not null
+)
+
+insert into livro(nome, autor, assunto, resumo, data_de_lancamento, preco_sugerido) values 
+	('O pequeno principe', 'Antoine de Saint-Exupéry', 'Literatura infantil, filosofia, amizade, amor, existencialismo.', 'Um piloto cai no deserto do Saara e encontra um pequeno príncipe que veio de outro planeta. O livro narra a jornada do príncipe por diversos planetas, suas reflexões sobre a vida e seus encontros com personagens que representam diferentes aspectos da natureza humana.', '1943', '50')
+	
+	
+select * from livro l 
+
+
+
+create table pneu (
+	id serial primary key,
+	marca varchar(255),
+	modelo varchar(255),
+  	largura varchar(255),
+  	raio varchar(255),
+  	especura varchar(255),
+  	carga_maxima varchar(255)
+)
+
+insert into pneu (marca, modelo, largura, raio, especura, carga_maxima) values
+	('Michelin', 'Primacy 4+', '205 mm', '16 polegadas', '55', '615 kg')
+	
+select * from pneu
+
+create table pneu (
+	id serial primary key,
+	marca varchar(255),
+	modelo varchar(255),
+  	largura varchar(255),
+  	raio varchar(255),
+  	especura varchar(255),
+  	carga_maxima varchar(255)
+)
+
+insert into pneu (marca, modelo, largura, raio, especura, carga_maxima) values
+	('Michelin', 'Primacy 4+', '205 mm', '16 polegadas', '55', '615 kg')
+	
+select * from pneu
+
+create table instrumento (
+	id serial primary key,
+	nome varchar(255),
+	tipo varchar(255)
+)
+
+insert into instrumento (nome, tipo) values 
+	('violino', 'corda')
+	
+	
+select * from instrumento
+
+
+create table computador (
+    id serial primary key,
+    descricao varchar(255),
+    cpu varchar(255),
+    memoria varchar(255),
+    placa_video varchar(255),
+    placa_mae varchar(255),
+    fonte varchar(255),
+    armazenamento varchar(255)
+);
