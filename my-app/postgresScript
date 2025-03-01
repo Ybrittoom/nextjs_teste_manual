@@ -147,3 +147,72 @@ create table computador (
     fonte varchar(255),
     armazenamento varchar(255)
 );
+
+create table casa(
+	id serial primary key,
+	tipo varchar(255) not null,
+	endereco varchar(255) not null,
+	areaTerreno varchar(255) not null,
+	areaConstruida varchar(255) not null,
+	quartos varchar(255) not null,
+	banheiros varchar(255) not null,
+	edicula varchar(255) not null,
+	churrasqueira varchar(255) not null,
+	piscina varchar(255) not null,
+	valorCondominio varchar(255) not null,
+	precoVenda varchar(255) not null
+);
+
+insert into casa (tipo, endereco, areaterreno, areaconstruida, quartos, banheiros, edicula, churrasqueira, piscina, valorcondominio, precovenda) values
+
+select * from casa c 
+
+create table ape (
+	id serial primary key,
+	tipo varchar(255),
+  	condominio varchar(255),
+  	area_privativa varchar(255),
+  	area_comum varchar(255),
+  	quantidade_de_quartos varchar(255),
+ 	quantidade_de_banheiros varchar(255),
+  	tem_churrasqueira varchar(255),
+  	tem_piscina varchar(255),
+  	valor_do_condominio varchar(255),
+  	preco_de_venda varchar(255)
+)
+
+insert into ape (tipo, condominio, area_privativa, area_comum, quantidade_de_quartos, quantidade_de_banheiros, tem_churrasqueira, tem_piscina, valor_do_condominio, preco_de_venda)  values 
+
+
+select * from ape a 
+
+create table casa_de_oracao (
+	id serial primary key,
+	nome varchar(255),
+  	endereco varchar(255),
+  	anciao varchar(255),
+  	telefone_anciao varchar(255),
+  	cooperador varchar(255),
+  	telefone_cooperador varchar(255),
+  	cooperador_de_jovens varchar(255),
+  	telefone_cooperador_de_jovens varchar(255),
+  	diacono varchar(255),
+  	telefone_diacono varchar(255),
+  	numero_da_ultima_santa_ceia varchar(255)
+)
+
+insert into casa_de_oracao (nome , endereco, anciao, telefone_anciao, cooperador, telefone_cooperador, cooperador_de_jovens, telefone_cooperador_de_jovens, diacono, telefone_diacono, numero_da_ultima_santa_ceia) values 
+
+select * from casa_de_oracao cdo 
+
+create table usuario (
+	id serial primary key,
+	nome varchar(255),
+	apelido varchar(255),
+	email varchar(255),
+	senha varchar(255)
+)
+
+insert into usuario (nome, apelido, email, senha) values
+
+select * from usuario u 

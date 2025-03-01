@@ -118,6 +118,78 @@ export default function RootLayout({
                 </a>
               </li>
 
+              <li>
+                <a href="apartamento" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  apartamento
+                </a>
+              </li>
+
+              <li>
+                <a href="casas_de_oracao" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  casas de oracao
+                </a>
+              </li>
+
+              <li>
+                <a href="hinos" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  hinos
+                </a>
+              </li>
+
+              <li>
+                <a href="usuarios" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  usuarios
+                </a>
+              </li>
+
+              <li>
+                <a href="curriculo" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  curriculo
+                </a>
+              </li>
+
+              <li>
+                <a href="animais" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  animais
+                </a>
+              </li>
+              
+              <li>
+                <a href="escola" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  escola
+                </a>
+              </li>
+
+              <li>
+                <a href="professor" className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5v14"></path>
+                  </svg>
+                  professor
+                </a>
+              </li>
+
             </ul>
           </nav>
         </aside>
