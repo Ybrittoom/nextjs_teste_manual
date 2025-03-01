@@ -258,3 +258,16 @@ create table escola (
 insert into escola (nome, endereco, quantidade_de_alunos, telefone) values 
 
 select * from escola e 
+
+create table professor (
+	id serial primary key,
+	nome varchar(255),
+  	endereco varchar(255),
+  	especialidade varchar(255),
+  	telefone varchar(255),
+  	email varchar(255)
+)
+
+insert into professor (nome, endereco, especialidade, telefone, email) values
+
+select * from professor p 
