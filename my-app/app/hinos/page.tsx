@@ -11,7 +11,7 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addHino({ titulo, numero, letra })
+        addHino( titulo, numero, letra )
     }
 
     return (

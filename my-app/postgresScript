@@ -205,6 +205,17 @@ insert into casa_de_oracao (nome , endereco, anciao, telefone_anciao, cooperador
 
 select * from casa_de_oracao cdo 
 
+create table hino (
+	id serial primary key,
+	titulo varchar(255),
+	numero varchar(255),
+	letra varchar(255)
+)
+
+insert into hino (titulo, numero, letra) values 
+
+select * from hino h 
+
 create table usuario (
 	id serial primary key,
 	nome varchar(255),
@@ -216,3 +227,34 @@ create table usuario (
 insert into usuario (nome, apelido, email, senha) values
 
 select * from usuario u 
+
+CREATE TABLE public.curriculo (
+	id serial4 NOT NULL,
+	nome varchar(255) NULL,
+	endereco varchar(255) NULL,
+	curriculo varchar(255) NULL,
+	habilidades varchar(255) NULL,
+	CONSTRAINT curriculo_pkey PRIMARY KEY (id)
+);
+
+create table animais (
+	id serial primary key,
+	nome varchar(255),
+	nome_cientifico varchar(255),
+  	especie varchar(255),
+  	grupo varchar(255)
+)
+
+insert into animais (nome, nome_cientifico, especie, grupo) values
+
+create table escola (
+	id serial primary key,
+	nome varchar(255),
+  	endereco varchar(255),
+	quantidade_de_Alunos varchar(255),
+  	telefone varchar(255)
+)
+
+insert into escola (nome, endereco, quantidade_de_alunos, telefone) values 
+
+select * from escola e 

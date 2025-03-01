@@ -1,6 +1,6 @@
 'use client'
 
-
+import { addProfessor } from "@/lib/professores/professor"
 import { useState } from "react"
 
 export default function ProfessoresPage() {
@@ -12,7 +12,7 @@ export default function ProfessoresPage() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addProfessor({ nome, endereco, especialidade, telefone, email })
+        addProfessor( nome, endereco, especialidade, telefone, email )
     }
 
     return (

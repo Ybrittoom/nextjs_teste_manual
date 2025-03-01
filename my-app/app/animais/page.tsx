@@ -2,6 +2,7 @@
 
 
 import { useState } from "react"
+import { addAnimal } from "@/lib/animais/animal"
 
 export default function Page() {
     const [nome, setNome] = useState('')
@@ -11,7 +12,7 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addAnimal({ nome, nomeCientifico, especie, grupo })
+        addAnimal( nome, nomeCientifico, especie, grupo )
     }
 
     return (

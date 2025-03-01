@@ -11,7 +11,7 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addUser({ nome, apelido, email, senha})
+        addUser( nome, apelido, email, senha)
     }
 
     return (

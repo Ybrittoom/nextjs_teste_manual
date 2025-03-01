@@ -12,7 +12,7 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addCurriculo({ nome, endereco, curriculo, habilidades })
+        addCurriculo(nome, endereco, curriculo, habilidades)
     }
 
     return (

@@ -2,6 +2,7 @@
 
 
 import { useState } from "react"
+import { addEscola } from "@/lib/escolas/escola"
 
 export default function Page() {
     const [nome, setNome] = useState('')
@@ -11,7 +12,7 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        addEscola({ nome, endereco, quantidadeAlunos, telefone })
+        addEscola( nome, endereco, quantidadeAlunos, telefone )
     }
 
     return (
