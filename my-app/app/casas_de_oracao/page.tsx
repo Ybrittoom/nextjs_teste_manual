@@ -19,7 +19,7 @@ export default function Page() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        addCasaOracao({
+        addCasaOracao(
             nome,
             endereco,
             anciao,
@@ -31,7 +31,7 @@ export default function Page() {
             diacono,
             telefoneDiacono,
             ultimaSantaCeia
-        });
+        );
     };
 
     return (
