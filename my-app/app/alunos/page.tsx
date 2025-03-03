@@ -62,8 +62,17 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Cor de pele</label>
                         <div className="mt-2">
-                            <input type="text" value={cor_da_pele} onChange={(event) => setCor_da_pele(event.target.value)} name="first-name" id="cor_da_pele" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
-                        </div>
+                        <select
+                            id="cor_da_pele"
+                            name="cor_da_pele"
+                            value={cor_da_pele}
+                            onChange={(event) => setCor_da_pele(event.target.value)}
+                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                <option value="">Selecione...</option> {/* Opção padrão */}
+                <option value="preto">Preto</option>
+                <option value="branco">Branco</option>
+                <option value="pardo">Pardo</option>
+            </select>                        </div>
                     </div>
                 </div>
 

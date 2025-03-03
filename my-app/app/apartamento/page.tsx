@@ -6,16 +6,18 @@ import { addApartamento } from "@/lib/apartamento/apartamento"
 export default function Page() {
     const [tipo, seTtipo] = useState('tipo')
     const [condominio, setCondominio] = useState('condominio')
-    const [area_privativa, setArea_privativa] = useState('area_privativa')
-    const [area_comum, setArea_comum] = useState('area_comum')
-    const [quantidade_de_quartos, setQuantidade_de_quartos] = useState('quantidade_de_quartos')
-    const [quantidade_de_banheiros, setQuantidade_de_banheiros] = useState('quantidade_de_banheiros')
-    const [tem_churrasqueira, setTem_churrasqueira] = useState('tem_churrasqueira')
-    const [tem_piscina, setTem_piscina] = useState('tem_piscina')
-    const [valor_do_condominio, setValor_do_condominio] = useState('valor_do_condominio')
-    const [preco_de_venda, setPreco_de_venda] = useState('preco_de_venda')
+    const [area_privativa, setArea_privativa] = useState(0)
+    const [area_comum, setArea_comum] = useState(0)
+    const [quantidade_de_quartos, setQuantidade_de_quartos] = useState(0)
+    const [quantidade_de_banheiros, setQuantidade_de_banheiros] = useState(0)
+    const [tem_churrasqueira, setTem_churrasqueira] = useState(false)
+    const [tem_piscina, setTem_piscina] = useState(false)
+    const [valor_do_condominio, setValor_do_condominio] = useState(0)
+    const [preco_de_venda, setPreco_de_venda] = useState(0)
     
     const handlSubmit = async (event: Event) => {
+
+
         event?.preventDefault();
         await addApartamento(
             tipo, 
@@ -97,7 +99,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Churrasqueira</label>
                         <div className="mt-2">
-                            <input type="text" value={tem_churrasqueira} onChange={(event) => setTem_churrasqueira(event.target.value)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="checkbox" checked={tem_churrasqueira} onChange={(event) => setTem_churrasqueira(event.target.checked)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -106,7 +108,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">piscina</label>
                         <div className="mt-2">
-                            <input type="text" value={tem_piscina} onChange={(event) => setTem_piscina(event.target.value)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="checkbox" checked={tem_piscina} onChange={(event) => setTem_piscina(event.target.checked)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
