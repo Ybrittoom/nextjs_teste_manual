@@ -6,9 +6,9 @@ import React, { useState } from "react";
 export default function Page() {
     const [ nome, setNome] = useState('nome')
     const [ endereco, setEndereco] = useState('endereço')
-    const [ data_de_nascimento, setDataDeNascimento] = useState('nascimento')
+    const [ data_de_nascimento, setDataDeNascimento] = useState()
     const [ numero_de_telefone, setNumeroDeTelefone] = useState(0)  
-    const [ email, setEmail] = useState('email')
+    const [ email, setEmail] = useState('email') 
     const [ CPF, setCPF] = useState(0)
     const handlSubmit = (event: any) => {
       event.preventDefault()

@@ -5,17 +5,17 @@ import { useState } from "react";
 import { addCasaOracao } from "@/lib/casa_de_oracao/casa_de_oracao";
 
 export default function Page() {
-    const [nome, setNome] = useState('');
-    const [endereco, setEndereco] = useState('');
-    const [anciao, setAnciao] = useState('');
-    const [telefoneAnciao, setTelefoneAnciao] = useState('');
-    const [cooperador, setCooperador] = useState('');
-    const [telefoneCooperador, setTelefoneCooperador] = useState('');
-    const [cooperadorJovens, setCooperadorJovens] = useState('');
-    const [telefoneCooperadorJovens, setTelefoneCooperadorJovens] = useState('');
-    const [diacono, setDiacono] = useState('');
-    const [telefoneDiacono, setTelefoneDiacono] = useState('');
-    const [ultimaSantaCeia, setUltimaSantaCeia] = useState('');
+    const [nome, setNome] = useState('nome');
+    const [endereco, setEndereco] = useState('endereco');
+    const [anciao, setAnciao] = useState('anciao');
+    const [telefoneAnciao, setTelefoneAnciao] = useState(0);
+    const [cooperador, setCooperador] = useState('cooperador');
+    const [telefoneCooperador, setTelefoneCooperador] = useState(0);
+    const [cooperadorJovens, setCooperadorJovens] = useState('cooperadorJovens');
+    const [telefoneCooperadorJovens, setTelefoneCooperadorJovens] = useState(0);
+    const [diacono, setDiacono] = useState('diacono');
+    const [telefoneDiacono, setTelefoneDiacono] = useState(0);
+    const [ultimaSantaCeia, setUltimaSantaCeia] = useState(0);
 
     const handleSubmit = (event) => {
         event.preventDefault();
