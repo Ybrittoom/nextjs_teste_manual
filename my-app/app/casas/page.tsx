@@ -94,9 +94,9 @@ export default function Page() {
 
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">churrasqueira</label>
+                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Churrasqueira</label>
                         <div className="mt-2">
-                            <input type="text" value={churrasqueira} onChange={(event) => setChurrasqueira(event.target.value)} name="first-name" id="churrasqueira" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="checkbox" checked={churrasqueira} onChange={(event) => setChurrasqueira(event.target.checked)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">piscina</label>
                         <div className="mt-2">
-                            <input type="text" value={piscina} onChange={(event) => setPiscina(event.target.value)} name="first-name" id="piscina" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="checkbox" checked={piscina} onChange={(event) => setPiscina(event.target.checked)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
