@@ -5,10 +5,10 @@ import { useState } from "react"
 import { addAnimal } from "@/lib/animais/animal"
 
 export default function Page() {
-    const [nome, setNome] = useState('')
-    const [nomeCientifico, setNomeCientifico] = useState('')
-    const [especie, setEspecie] = useState('') 
-    const [grupo, setGrupo] = useState('')
+    const [nome, setNome] = useState('nome')
+    const [nomeCientifico, setNomeCientifico] = useState('nomeCientifico')
+    const [especie, setEspecie] = useState('especie')
+    const [grupo, setGrupo] = useState('grupo')
 
     const handleSubmit = (event) => {
         event.preventDefault()

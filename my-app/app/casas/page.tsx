@@ -6,15 +6,15 @@ import { addCasa } from "@/lib/casas/casa"
 export default function Page() {
     const [tipo, setTipo] = useState('tipo')
     const [endereco, setEndereco] = useState('endereco')
-    const [areaTerreno, setAreaTerreno] = useState('areaTerreno')
-    const [areaConstruida, setAreaConstruida] = useState('areaConstruida')
-    const [quartos, setQuartos] = useState('quartos')
-    const [banheiros, setBanheiros] = useState('banheiros')
+    const [areaTerreno, setAreaTerreno] = useState(0)
+    const [areaConstruida, setAreaConstruida] = useState(0)
+    const [quartos, setQuartos] = useState(0)
+    const [banheiros, setBanheiros] = useState(0)
     const [edicula, setEdicula] = useState(false)
     const [churrasqueira, setChurrasqueira] = useState(false)
     const [piscina, setPiscina] = useState(false)
-    const [valorCondominio, setValorCondominio] = useState('valorCondominio')
-    const [precoVenda, setPrecoVenda] = useState('precoVenda')
+    const [valorCondominio, setValorCondominio] = useState(0)
+    const [precoVenda, setPrecoVenda] = useState(0)
 
     const handlSubmit = (event: any) => {
         event.preventDefault()
@@ -85,9 +85,9 @@ export default function Page() {
 
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">edicula</label>
+                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Edicula</label>
                         <div className="mt-2">
-                            <input type="text" value={edicula} onChange={(event) => setEdicula(event.target.value)} name="first-name" id="edeicula" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="checkbox" checked={edicula} onChange={(event) => setEdicula(event.target.checked)} name="first-name" id="condominio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
