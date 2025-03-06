@@ -7,7 +7,7 @@ import { addEscola } from "@/lib/escolas/escola"
 export default function Page() {
     const [nome, setNome] = useState('')
     const [endereco, setEndereco] = useState('')
-    const [quantidadeAlunos, setQuantidadeAlunos] = useState('') 
+    const [quantidadeAlunos, setQuantidadeAlunos] = useState(0) 
     const [telefone, setTelefone] = useState('')
 
     const handleSubmit = (event) => {
