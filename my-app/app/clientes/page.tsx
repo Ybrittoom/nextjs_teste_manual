@@ -6,10 +6,10 @@ import React, { useState } from "react";
 export default function Page() {
     const [ nome, setNome] = useState('nome')
     const [ endereco, setEndereco] = useState('endereço')
-    const [ data_de_nascimento, setDataDeNascimento] = useState()
+    const [ data_de_nascimento, setDataDeNascimento] = useState('data')
     const [ numero_de_telefone, setNumeroDeTelefone] = useState(0)  
     const [ email, setEmail] = useState('email') 
-    const [ CPF, setCPF] = useState(0)
+    const [ CPF, setCPF] = useState('CPF')
     const handlSubmit = (event: any) => {
       event.preventDefault()
       addCliente(nome, endereco, data_de_nascimento, numero_de_telefone, email, CPF)

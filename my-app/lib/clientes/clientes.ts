@@ -6,7 +6,7 @@ export async function addCliente(
     data_de_nascimento: Date,
     numero_de_telefone: number,
     email: string,
-    CPF: number
+    CPF: string
 ) {
     await pool.query(
         `insert into cliente (
