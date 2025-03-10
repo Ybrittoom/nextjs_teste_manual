@@ -6,10 +6,10 @@ import { addPneu } from "@/lib/pneus/pneu"
 export default function Page() {
     const [ marca, setMarca] = useState('marca')    
     const [ modelo, setModelo] = useState('modelo')
-    const [ largura, setLargura] = useState('largura')
-    const [ raio, setRaio] = useState('raio')
-    const [ especura, setEspecura] = useState('especura')
-    const [ carga_maxima, setCarga_maxima] = useState('carga maxima')   
+    const [ largura, setLargura] = useState(0)
+    const [ raio, setRaio] = useState(0)
+    const [ especura, setEspecura] = useState(0)
+    const [ carga_maxima, setCarga_maxima] = useState(0)   
     const handlSubmit = (event: any) => {
         event.preventDefault()
         addPneu(marca, modelo, largura, raio, especura, carga_maxima)

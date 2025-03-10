@@ -8,7 +8,7 @@ export default function Page() {
     const [nome, setNome] = useState('')
     const [endereco, setEndereco] = useState('')
     const [quantidadeAlunos, setQuantidadeAlunos] = useState(0) 
-    const [telefone, setTelefone] = useState('')
+    const [telefone, setTelefone] = useState('numero de telefone')
 
     const handleSubmit = (event) => {
         event.preventDefault()
