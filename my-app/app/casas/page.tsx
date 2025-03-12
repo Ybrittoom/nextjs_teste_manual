@@ -51,7 +51,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">area terreno</label>
                         <div className="mt-2">
-                            <input type="text" value={areaTerreno} onChange={(event) => setAreaTerreno(event.target.value)} name="first-name" id="area_terreno" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={areaTerreno} onChange={(event) => setAreaTerreno(event.target.value)} name="first-name" id="area_terreno" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">area construida</label>
                         <div className="mt-2">
-                            <input type="text" value={areaConstruida} onChange={(event) => setAreaConstruida(event.target.value)} name="first-name" id="areaConstruida" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={areaConstruida} onChange={(event) => setAreaConstruida(event.target.value)} name="first-name" id="areaConstruida" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">quartos</label>
                         <div className="mt-2">
-                            <input type="text" value={quartos} onChange={(event) => setQuartos(event.target.value)} name="first-name" id="quartos" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={quartos} onChange={(event) => setQuartos(event.target.value)} name="first-name" id="quartos" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Banheiros</label>
                         <div className="mt-2">
-                            <input type="text" value={banheiros} onChange={(event) => setBanheiros(event.target.value)} name="first-name" id="banheiros" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={banheiros} onChange={(event) => setBanheiros(event.target.value)} name="first-name" id="banheiros" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>

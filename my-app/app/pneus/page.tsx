@@ -45,7 +45,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">largura</label>
                         <div className="mt-2">
-                            <input type="text" value={largura} onChange={(event) => setLargura(event.target.value)} name="first-name" id="largura" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={largura} onChange={(event) => setLargura(event.target.value)} name="first-name" id="largura" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">raio</label>
                         <div className="mt-2">
-                            <input type="text" value={raio} onChange={(event) => setRaio(event.target.value)} name="first-name" id="raio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={raio} onChange={(event) => setRaio(event.target.value)} name="first-name" id="raio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">espeçura</label>
                         <div className="mt-2">
-                            <input type="text" value={especura} onChange={(event) => setEspecura(event.target.value)} name="first-name" id="especura" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={especura} onChange={(event) => setEspecura(event.target.value)} name="first-name" id="especura" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ export default function Page() {
                     <div className="sm:col-span-3">
                         <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">carga maxima</label>
                         <div className="mt-2">
-                            <input type="text" value={carga_maxima} onChange={(event) => setCarga_maxima(event.target.value)} name="first-name" id="raio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                            <input type="number" value={carga_maxima} onChange={(event) => setCarga_maxima(event.target.value)} name="first-name" id="raio" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                         </div>
                     </div>
                 </div>

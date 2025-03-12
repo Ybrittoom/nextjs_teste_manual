@@ -55,7 +55,7 @@ export default function Page() {
 
             <div>
                 <label className="block text-sm font-medium text-gray-900">Telefone Ancião</label>
-                <input type="tel" value={telefoneAnciao} onChange={(e) => setTelefoneAnciao(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
+                <input type="text" value={telefoneAnciao} onChange={(e) => setTelefoneAnciao(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
             </div>
             
             <div>
@@ -65,7 +65,7 @@ export default function Page() {
 
             <div>
                 <label className="block text-sm font-medium text-gray-900">Telefone Cooperador</label>
-                <input type="tel" value={telefoneCooperador} onChange={(e) => setTelefoneCooperador(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
+                <input type="text" value={telefoneCooperador} onChange={(e) => setTelefoneCooperador(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
             </div>
             
             <div>
@@ -75,7 +75,7 @@ export default function Page() {
 
             <div>
                 <label className="block text-sm font-medium text-gray-900">Telefone Cooperador de Jovens</label>
-                <input type="tel" value={telefoneCooperadorJovens} onChange={(e) => setTelefoneCooperadorJovens(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
+                <input type="text" value={telefoneCooperadorJovens} onChange={(e) => setTelefoneCooperadorJovens(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
             </div>
             
             <div>
@@ -85,7 +85,7 @@ export default function Page() {
 
             <div>
                 <label className="block text-sm font-medium text-gray-900">Telefone Diácono</label>
-                <input type="tel" value={telefoneDiacono} onChange={(e) => setTelefoneDiacono(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
+                <input type="text" value={telefoneDiacono} onChange={(e) => setTelefoneDiacono(e.target.value)} className="w-full rounded-md border-gray-300 px-3 py-1.5" />
             </div>
             
             <div>
