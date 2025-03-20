@@ -30,3 +30,28 @@ export async function addAluno(
         ]
     )
 }
+
+export async function getAluno() {
+    return (await pool.query(`select * from hino`)).rows
+}
+
+export async function updateAluno(
+    id: number,
+    titulo: string,
+    numero: number,
+    letra: string
+) {
+    await pool.query(
+        `update hino set 
+            titulo = '${titulo}',
+            letra = '${letra}',
+            numero = ${numero}
+        where id = ${id}`
+    )
+}
+
+export async function removeAluno(
+    id: number
+) {
+    await pool.query(`delete from hino where id = ${id}`)
+}
