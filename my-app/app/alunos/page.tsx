@@ -1,220 +1,122 @@
-'use client'
+'use client';
 
-import { addAluno, getAluno, updateAluno, removeAluno} from "@/lib/alunos/aluno"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
+import { addAluno, getAluno, removeAluno, updateAluno } from '@/lib/alunos/aluno';
+
+interface alunos {
+  id: number;
+  nome: string;
+  nomePai: string;
+  nomeMae: string;
+  dataNascimento: string;
+  corPele: string;
+}
 
 export default function Page() {
-    const [alunos, setAlunos] = useState<Aluno[]>([])
-    const [nome, setNome] = useState('nome')    
-    const [nome_do_pai, setNome_do_pai] = useState('nome do pai')
-    const [nome_da_mae, setNome_da_mae] = useState('nome da mae')
-    const [data_de_nascimento, setData_de_nascimento] = useState('data de nascimento')
-    const [cor_da_pele, setCor_da_pele] = useState('cor da pele')
-    const [id, setId] = useState(0)
-    const [isModalOpen, setIsModalOpen] = useState(false)
+  const [alunos, setAlunos] = useState<alunos[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [id, setId] = useState(0);
+  const [nome, setNome] = useState('');
+  const [nomePai, setNomePai] = useState('');
+  const [nomeMae, setNomeMae] = useState('');
+  const [dataNascimento, setDataNascimento] = useState('');
+  const [corPele, setCorPele] = useState('');
 
-    const fetchAlunos = async () => {
-        try {
-            const data = await getAluno()
-            setAlunos(data)
-        } catch (error) {
-            console.error(' erro fetching alunos:', error)
-        }
+  const fetchAlunos = async () => {
+    try {
+      const data = await getAluno();
+      setAlunos(data);
+    } catch (error) {
+      console.error('Erro ao buscar alunos:', error);
     }
+  };
 
-    useEffect(() => {
-        fetchAlunos()
-    }, [])
+  useEffect(() => {
+    fetchAlunos();
+  }, []);
 
-    const handleEdit = ({id, nome, nome_do_pai, nome_da_mae, data_de_nascimento, cor_da_pele}: Aluno) => {
-        setId(id)
-        setNome(nome)
-        setNome_do_pai(nome_do_pai)
-        setNome_da_mae(nome_da_mae)
-        setData_de_nascimento(data_de_nascimento)
-        setCor_da_pele(cor_da_pele)
-        setIsModalOpen(true)
+  const handleEdit = (aluno: alunos) => {
+    setId(aluno.id);
+    setNome(aluno.nome);
+    setNomePai(aluno.nomePai);
+    setNomeMae(aluno.nomeMae);
+    setDataNascimento(aluno.dataNascimento);
+    setCorPele(aluno.corPele);
+    setIsModalOpen(true);
+  };
+
+  const handleRemove = async (aluno: alunos) => {
+    await removeAluno(aluno.id);
+    fetchAlunos();
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleAlunoSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      if (id === 0) {
+        await addAluno(nome, nomePai, nomeMae, dataNascimento, corPele);
+      } else {
+        await updateAluno(id, nome, nomePai, nomeMae, dataNascimento, corPele);
+      }
+      fetchAlunos();
+      closeModal();
+    } catch (error) {
+      console.error('Erro ao salvar alunos:', error);
     }
+  };
 
-    const handleRemove = async ({id}: Aluno) => {
-        await removeAluno(id)
-        fetchAlunos()
-    }
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Cadastro de Alunos</h1>
 
-    const closeModal = () => {
-        setIsModalOpen(false)
-    }
+      <button onClick={() => handleEdit({ id: 0, nome: '', nomePai: '', nomeMae: '', dataNascimento: '', corPele: '' })} className="bg-blue-600 text-white px-4 py-2 rounded mb-4">
+        Adicionar Novo Aluno
+      </button>
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        try {
-            if (id === 0 )
-                await addAluno(nome, nome_do_pai, nome_da_mae, data_de_nascimento, cor_da_pele)
-            else 
-                await updateAluno(id, nome, nome_do_pai, nome_da_mae, data_de_nascimento, cor_da_pele)
-            fetchAlunos()
-            closeModal()
-        } catch (error) {
-            console.error('Error adding aluno:', error)
-        }
-    }
+      <table className="table-auto w-full border">
+        <thead>
+          <tr>
+            <th className="border px-4 py-2">Nome</th>
+            <th className="border px-4 py-2">Data de Nascimento</th>
+            <th className="border px-4 py-2">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {alunos.map((aluno) => (
+            <tr key={aluno.id} className="hover:bg-gray-100">
+              <td className="border px-4 py-2">{aluno.nome}</td>
+              <td className="border px-4 py-2">{aluno.dataNascimento}</td>
+              <td className="border px-4 py-2">
+                <button onClick={() => handleEdit(aluno)} className="bg-green-600 text-white px-3 py-1 rounded mr-2">Editar</button>
+                <button onClick={() => handleRemove(aluno)} className="bg-red-600 text-white px-3 py-1 rounded">Excluir</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-    return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-2x1 font-bold mb-4">Cadastro de Alunos</h1>
-
-            <div className="mb-4">
-                <button
-                onClick={() => handleEdit({id: 0, nome: '', nome_do_pai: '', nome_da_mae: '', data_de_nascimento: '', cor_da_pele: ''})}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                    Adicionar novo Aluno
-                </button>
-            </div>
-
-            <div className="overFlow-x-auto">
-                <table className="table-auto w-full">
-                    <thead>
-                        <tr>
-                            <th className="border px-4 py-2">Nome</th>
-                            <th className="border px-4 py-2">Data de nascimento</th>
-                            <th className="border px-4 py-2">Açoes</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {alunos.map((aluno) => (
-                            <tr
-                            key={aluno.id}
-                            className="hover:bg-gray-100 cursor-pointer"
-                            >
-                                <td className="border px-4 py-2️">{aluno.nome}</td>
-                                <td className="border px-4 py-2️">{aluno.data_de_nascimento}</td>
-                                <td className="border px-4 py2">
-                                    <button
-                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    onClick={() => handleEdit(aluno)}
-                                    >
-                                        Editar
-                                    </button>
-
-                                    <button
-                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    onClick={() => handleRemove(aluno)}
-                                    >
-                                        Excluir
-                                    </button>
-                                </td>
-
-                            </tr>
-                        ))}
-                    </tbody>
-
-                </table>
-            </div>
-
-            {/*Modal*/}
-            {isModalOpen && (
-                <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white rounded-lg p-8 w-full max-w-md">
-                        <h2 className="text-base font-semibold text-gray-900 md-4">
-                            Novo aluno
-                        </h2>
-                        <form onSubmit={handleSubmit}>
-                            <div className="spcae-y-4">
-                                <div className="grid grid-cols-1 gap-x-6 gap-y-2">
-                                    <div>
-                                        <label 
-                                            htmlFor="titulo"
-                                            className="block text-sm font-medium text-gray-900"
-                                        >
-                                            Nome
-                                        </label>
-                                        <div className="mt-1">
-                                            <input type="text" 
-                                            value={nome}
-                                            onChange={(event) => setNome(event.target.value)}
-                                            id="nome"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="nome_do_pai"
-                                        className="block text-sm font-medium text-gray-900"
-                                        >
-                                            Nome do pai
-                                        </label>
-                                        <div className="mt-1">
-                                            <input type="text" 
-                                            value={nome_do_pai}
-                                            onChange={(event) => setNome_do_pai(event.target.value)}
-                                            id="nome_do_pai"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                    <label htmlFor="nome_da_mae"
-                                        className="block text-sm font-medium text-gray-900"
-                                        >
-                                            Nome da mae
-                                        </label>
-                                        <div className="mt-1">
-                                            <input type="text" 
-                                            value={nome_da_mae}
-                                            onChange={(event) => setNome_da_mae(event.target.value)}
-                                            id="nome_da_mae"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="data_de_nascimento"
-                                            className="block text-sm font-medium text-gray-900"
-                                        >
-                                            Data de Nascimento
-                                        </label>
-                                        <div className="mt-1">
-                                            <input type="text" 
-                                            value={data_de_nascimento}
-                                            onChange={(event) => setData_de_nascimento(event.target.value)}
-                                            id="data_de_nascimento"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <label htmlFor="cor_da_pele"
-                                        className="block text-sm font-medium text-gray-900"
-                                        >
-                                            Cor da pele
-                                        </label>
-                                        <div className="mt-1">
-                                            <input type="text" 
-                                            value={cor_da_pele}
-                                            onChange={(event) => setCor_da_pele(event.target.value)}
-                                            id="cor_da_pele"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required
-                                            />
-                                        </div>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            )}
-            
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white p-6 rounded shadow-lg w-96">
+            <h2 className="text-lg font-bold mb-4">Cadastrar Aluno</h2>
+            <form onSubmit={handleAlunoSubmit} className="space-y-4">
+              <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" required className="w-full p-2 border rounded text-gray-900" />
+              <input type="text" value={nomePai} onChange={(e) => setNomePai(e.target.value)} placeholder="Nome do Pai" className="w-full p-2 border rounded text-gray-900" />
+              <input type="text" value={nomeMae} onChange={(e) => setNomeMae(e.target.value)} placeholder="Nome da Mãe" className="w-full p-2 border rounded text-gray-900" />
+              <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 border rounded text-gray-900" required />
+              <input type="text" value={corPele} onChange={(e) => setCorPele(e.target.value)} placeholder="Cor da Pele" className="w-full p-2 border rounded text-gray-900" />
+              <div className="flex justify-end space-x-2">
+                <button type="button" onClick={closeModal} className="bg-gray-400 text-white px-3 py-2 rounded">Cancelar</button>
+                <button type="submit" className="bg-blue-600 text-white px-3 py-2 rounded">Salvar</button>
+              </div>
+            </form>
+          </div>
         </div>
-    )
+      )}
+    </div>
+  );
 }

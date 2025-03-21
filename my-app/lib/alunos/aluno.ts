@@ -32,7 +32,7 @@ export async function addAluno(
 }
 
 export async function getAluno() {
-    return (await pool.query(`select * from hino`)).rows
+    return (await pool.query(`select * from aluno`)).rows
 }
 
 export async function updateAluno(
