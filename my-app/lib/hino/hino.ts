@@ -35,9 +35,9 @@ export async function updateHino(
 ) {
     await pool.query(
         `update hino set 
-            titulo = '${titulo}',
-            letra = '${letra}',
-            numero = ${numero}
+            titulo = $1,
+            letra = $2,
+            numero = $3
         where id = ${id}`
     )
 }
