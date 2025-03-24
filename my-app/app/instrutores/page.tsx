@@ -1,79 +1,189 @@
 'use client'
 
-import { addInstrutor } from "@/lib/instrutores/instrutor"
-import { useState } from "react"
+import { useEffect, useState } from "react";
+import { addInstrutores, getInstrutores, removeInstrutor, updateInstrutores } from "@/lib/instrutores/instrutor";
+
+interface Instrutor {
+  id: number;
+  nome: string;
+  especialidade: string;
+  data_nascimento: string;
+  endereco: string;
+  comum: string;
+}
 
 export default function Page() {
-    //aqui fica as constates
-    const [nome, setNome] = useState('nome')    
-    const [especialidade, setEspecialidade] = useState('especialidade')
-    const [data_de_nascimento, setData_de_nascimento] = useState('data de nascimento')
-    const [endereco, setEndereco] = useState('endereco')    
-    const [comum, setComum] = useState('comum')    
-    const handlSubmit = (event: any) => {
-        event.preventDefault()
-        addInstrutor(nome, especialidade, data_de_nascimento, endereco, comum)
+  const [instrutores, setInstrutores] = useState<Instrutor[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [id, setId] = useState<number>(0);
+  const [nome, setNome] = useState<string>('');
+  const [especialidade, setEspecialidade] = useState<string>('');
+  const [data_nascimento, setDataNascimento] = useState<string>('');
+  const [endereco, setEndereco] = useState<string>('');
+  const [comum, setComum] = useState<string>('');
+
+  // Função para buscar instrutores
+  const fetchInstrutores = async () => {
+    try {
+      const instrutoresList = await getInstrutores();
+      setInstrutores(instrutoresList);
+    } catch (error) {
+      console.error('Erro ao buscar instrutores:', error);
     }
+  };
 
-    return (
-        <form onSubmit={handlSubmit}>
-            <div className="spcae-y-12">
-                <div className="border-b border-gray-900/10 pb-12">
-                    <h2 className="text-base/7 font-semibold text-gray-900">Instrutor</h2>
-                    <p className="mt-1 text-sm/6 text-gray-600">Informaçoes do Instrutor</p>
-                </div>
+  // useEffect para carregar os instrutores na inicialização da página
+  useEffect(() => {
+    fetchInstrutores();
+  }, []);
 
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Nome</label>
-                        <div className="mt-2">
-                            <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} name="first-name" id="nome_produto" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
-                        </div>
-                    </div>
-                </div>
+  // Função para editar instrutor
+  const handleEdit = (instrutor: Instrutor | null) => {
+    if (instrutor) {
+      setId(instrutor.id);
+      setNome(instrutor.nome);
+      setEspecialidade(instrutor.especialidade);
+      setDataNascimento(instrutor.data_nascimento);
+      setEndereco(instrutor.endereco);
+      setComum(instrutor.comum);
+    } else {
+      setId(0);
+      setNome('');
+      setEspecialidade('');
+      setDataNascimento('');
+      setEndereco('');
+      setComum('');
+    }
+    setIsModalOpen(true);
+  };
 
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Especialidade</label>
-                        <div className="mt-2">
-                            <input type="text" value={especialidade} onChange={(event) => setEspecialidade(event.target.value)} name="first-name" id="nome_produto" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
-                        </div>
-                    </div>
-                </div>
+  // Função para excluir instrutor
+  const handleRemove = async (instrutor: Instrutor) => {
+    try {
+      await removeInstrutor(instrutor.id);
+      fetchInstrutores();
+    } catch (error) {
+      console.error('Erro ao remover instrutor:', error);
+    }
+  };
 
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Data de nascimento</label>
-                        <div className="mt-2">
-                            <input type="date" value={data_de_nascimento} onChange={(event) => setData_de_nascimento(event.target.value)} name="first-name" id="nome_produto" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
-                        </div>
-                    </div>
-                </div>
+  // Função para fechar o modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setId(0);
+    setNome('');
+    setEspecialidade('');
+    setDataNascimento('');
+    setEndereco('');
+    setComum('');
+  };
 
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Endereço</label>
-                        <div className="mt-2">
-                            <input type="text" value={endereco} onChange={(event) => setEndereco(event.target.value)} name="first-name" id="nome_produto" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
-                        </div>
-                    </div>
-                </div>
+  // Função para salvar ou atualizar instrutor
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <div className="sm:col-span-3">
-                        <label htmlFor="nome_produto" className="block text-sm/6 font-medium text-gray-900">Comum</label>
-                        <div className="mt-2">
-                            <input type="text" value={comum} onChange={(event) => setComum(event.target.value)} name="first-name" id="nome_produto" autoComplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
-                        </div>
-                    </div>
-                </div>
+    try {
+      if (id === 0) {
+        await addInstrutores(nome, especialidade, data_nascimento, endereco, comum);
+      } else {
+        await updateInstrutores(id, nome, especialidade, data_nascimento, endereco, comum);
+      }
+      fetchInstrutores();
+      closeModal();
+    } catch (error) {
+      console.error('Erro ao salvar instrutores:', error);
+    }
+  };
 
-            </div>
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Cadastro de Instrutores</h1>
 
-            <div className="mt-6 flex items-center justify-end gap-x-6">
-                <button type="button" className="text-sm/6 font-semibold text-gray-900">Cancel</button>
-                <button type="submit" className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
-            </div>
-        </form>
-    )
+      {/* Botão para adicionar novo instrutor */}
+      <button onClick={() => handleEdit(null)} className="bg-blue-600 text-white px-4 py-2 rounded mb-4">
+        Adicionar Novo Instrutor
+      </button>
+
+      {/* Tabela de instrutores */}
+      <table className="table-auto w-full border">
+        <thead>
+          <tr>
+            <th className="border px-4 py-2">Nome</th>
+            <th className="border px-4 py-2">Especialidade</th>
+            <th className="border px-4 py-2">Data de Nascimento</th>
+            <th className="border px-4 py-2">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {instrutores.map((instrutor) => (
+            <tr 
+            key={instrutor.id} 
+            className="hover:bg-gray-100"
+            >
+                <td className="border px-4 py-2">{instrutor.nome}</td>
+                <td className="border px-4 py-2">{instrutor.especialidade}</td>
+                <td className="border px-4 py-2">{instrutor.data_nascimento}</td>
+                <td className="border px-4 py-2">
+                    <button onClick={() => handleEdit(instrutor)} className="bg-green-600 text-white px-3 py-1 rounded mr-2">Editar</button>
+                    <button onClick={() => handleRemove(instrutor)} className="bg-red-600 text-white px-3 py-1 rounded">Excluir</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* Modal de edição e cadastro */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+          <div className="bg-white p-6 rounded shadow-lg w-96">
+            <h2 className="text-lg font-bold mb-4">{id === 0 ? 'Cadastrar Instrutor' : 'Editar Instrutor'}</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input 
+                type="text" 
+                value={nome} 
+                onChange={(e) => setNome(e.target.value)} 
+                placeholder="Nome" 
+                required 
+                className="w-full p-2 border rounded text-gray-900" 
+              />
+              <input 
+                type="text" 
+                value={especialidade} 
+                onChange={(e) => setEspecialidade(e.target.value)} 
+                placeholder="Especialidade" 
+                required 
+                className="w-full p-2 border rounded text-gray-900" 
+              />
+              <input 
+                type="date" 
+                value={data_nascimento} 
+                onChange={(e) => setDataNascimento(e.target.value)} 
+                required 
+                className="w-full p-2 border rounded text-gray-900" 
+              />
+              <input 
+                type="text" 
+                value={endereco} 
+                onChange={(e) => setEndereco(e.target.value)} 
+                placeholder="Endereço" 
+                required 
+                className="w-full p-2 border rounded text-gray-900" 
+              />
+              <input 
+                type="text" 
+                value={comum} 
+                onChange={(e) => setComum(e.target.value)} 
+                placeholder="Comum" 
+                className="w-full p-2 border rounded text-gray-900" 
+              />
+              <div className="flex justify-end space-x-2">
+                <button type="button" onClick={closeModal} className="bg-gray-400 text-white px-3 py-2 rounded">Cancelar</button>
+                <button type="submit" className="bg-blue-600 text-white px-3 py-2 rounded">Salvar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }

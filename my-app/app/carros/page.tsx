@@ -1,8 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { addCarro } from "@/lib/carros/carro"
-import { updateAluno } from "@/lib/alunos/aluno"
+import { addCarro, getCarros, updateCarro, removeCarro } from "@/lib/carros/carro"
 
 //aqui ficara os imports
 
@@ -115,9 +114,7 @@ export default function Page() {
                     <tr>
                         <th className="border px-4 py-2">Fabricante</th>
                         <th className="border px-4 py-2">Modelo</th>
-                        <th className="border px-4 py-2">Ano de fabricaçao</th>
-                        <th className="border px-4 py-2">cor</th>
-                        <th className="border px-4 py-2">quilometros rodados</th>
+                        <th className="border px-4 py-2">Açoes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -147,6 +144,122 @@ export default function Page() {
                 </tbody>
             </table>
             </div>
+
+            {/* Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-50 flex items-center justify-center">
+
+                    <div className="bg-white rounded-lg p-8 w-full max-w-md">
+                        <h2 className="text-base font-semibold text-gray-900 md-4">
+                            Novo Carro
+                        </h2>
+
+                    <form onSubmit={handleSubmit}>
+                        <div className="space-y-4">
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                <div>
+                                    <label htmlFor="fabricante"
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        Fabricante
+                                    </label>
+                                    <div className="mt-1">
+                                        <input type="text" 
+                                        value={Fabricante}
+                                        onChange={(event) => setFabricante(event.target.value)}
+                                        required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                <div>
+                                    <label htmlFor="modelo"
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        Modelo
+                                    </label>
+                                    <div className="mt-1">
+                                        <input type="text" 
+                                        value={modelo}
+                                        onChange={(event) => setModelo(event.target.value)}
+                                        required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                <div>
+                                    <label htmlFor="ano_de_fabricaçao"
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        Ano de Fabricaçao
+                                    </label>
+                                    <div className="mt-1">
+                                        <input type="date" 
+                                        value={ano_de_fabricacao}
+                                        onChange={(event) => setAno_de_fabricacao(event.target.value)}
+                                        required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                <div>
+                                    <label htmlFor="cor"
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        cor
+                                    </label>
+                                    <div className="mt-1">
+                                        <input type="text" 
+                                        value={cor}
+                                        onChange={(event) => setCor(event.target.value)}
+                                        required/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                <div>
+                                    <label htmlFor="quilometros_rodados"
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        quilometros rodados
+                                    </label>
+                                    <div className="mt-1">
+                                        <input type="number" 
+                                        value={quilometros_rodados}
+                                        onChange={(event) => setQuilometros_rodados(event.target.value)}
+                                        required/>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div className="mt-6 flex items-center justify-end gap-x-6">
+                                <button
+                                    type="button"
+                                    className="text-sm font-semibold text-gray-900"
+                                    onClick={closeModal}
+                                    >
+                                        Cancelar
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                >
+                                    Salvar
+                                </button>
+                            </div>
+                    </form>
+
+                    </div>
+
+                </div>
+            )}
 
         </div>
     )
