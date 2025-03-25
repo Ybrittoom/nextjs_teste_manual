@@ -92,7 +92,7 @@ export async function updateCasa(
             piscina,
             valorcondominio,
             precovenda
-        ],
+        ]
     )
 }
 
