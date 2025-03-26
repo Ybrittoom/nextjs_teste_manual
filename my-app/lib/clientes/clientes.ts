@@ -34,3 +34,38 @@ export async function addCliente(
         ]
     )
 }
+
+export async function getClientes() {
+    return (await pool.query(`select * from cliente`)).rows
+}
+
+export async function removeCliente(id: number) {
+    await pool.query(`delete from cliente where id = $1`, [id]);
+}
+
+export async function updateCliente(
+    id: number,
+    nome: string,
+    endereco: string,
+    data_de_nascimento: Date,
+    numero_de_telefone: string,
+    CPF: string
+) {
+    await pool.query(
+        `update produto set
+            nome = '$1',
+            endereco = '$2',
+            data_de_nascimento = '$3',
+            numero_de_telefone = '$4',
+            CPF = '$5'
+        where id = $6`,
+        [
+            id,
+            nome,
+            endereco,
+            data_de_nascimento,
+            numero_de_telefone,
+            CPF
+        ]
+    );
+}
