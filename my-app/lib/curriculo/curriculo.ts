@@ -26,3 +26,36 @@ export async function addCurriculo(
         ]
     )
 }
+
+export async function getCurriculos() {
+    return (await pool.query(`select * from curriculo`)).rows
+}
+
+export async function removeCurriculo(id: number) {
+    await pool.query(`delete from curriculo where id = $1`, [id]);
+}
+
+export async function updateCurriculo(
+    id: number,
+    nome: string,
+    endereco: string,
+    curriculo: string,
+    habilidades: string
+) {
+    await pool.query(
+        `update produto set
+            nome = $1,
+            endereco = $2,
+            curriculo = $3,
+            habilidades = $4
+        where id = $5`,
+        [
+            nome,
+            endereco,
+            curriculo,
+            habilidades,
+            id
+        ]
+    );
+}
+
