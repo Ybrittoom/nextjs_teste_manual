@@ -83,6 +83,7 @@ export default function Page() {
             else 
                 await updateCliente(
                     id,
+                    nome,
                     endereco,
                     data_de_nascimento,
                     numero_de_telefone,
@@ -98,7 +99,7 @@ export default function Page() {
     }
     
 
-  return (
+return (
     <div className="container mx-auto p-4">
         <h1 className="text-2x1 font-bold mb-4">Cadastro De Clientes</h1>
 

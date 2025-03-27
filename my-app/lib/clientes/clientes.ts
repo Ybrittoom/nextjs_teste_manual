@@ -49,6 +49,7 @@ export async function updateCliente(
     endereco: string,
     data_de_nascimento: Date,
     numero_de_telefone: string,
+    email: string,
     CPF: string
 ) {
     await pool.query(
@@ -57,14 +58,16 @@ export async function updateCliente(
             endereco = '$2',
             data_de_nascimento = '$3',
             numero_de_telefone = '$4',
-            CPF = '$5'
-        where id = $6`,
+            email = '$5',
+            CPF = '$6'
+        where id = $7`,
         [
             id,
             nome,
             endereco,
             data_de_nascimento,
             numero_de_telefone,
+            email,
             CPF
         ]
     );
