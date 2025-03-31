@@ -135,9 +135,9 @@ return (
                         key={cliente.id}
                         className="hover:bg-gray-100 cursor-pointer"
                         >
-                            <td className="border px-4 py2">{cliente.nome}</td>
-                            <td className="border px-4 py2">{cliente.email}</td>
-                            <td className="border px-4 py2">
+                            <td className="border px-4 py-2">{cliente.nome}</td>
+                            <td className="border px-4 py-2">{cliente.email}</td>
+                            <td className="border px-4 py-2">
                                 <button
                                 className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 onClick={() => handleEdit(cliente)}
@@ -159,7 +159,7 @@ return (
 
         {/* Modal */}
         {isModalOpen && (
-            <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500  bg-opacity-50 flex items-center justify-center">
+            <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-50 flex items-center justify-center">
                 <div className="bg-white rounded-lg p-8 w-full max-w-md">
                     <h2 className="text-base font-semibold text-gray-900 md-4">
                         Novo Cliente 

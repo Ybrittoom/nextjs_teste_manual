@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { addFilme } from "@/lib/filmes/filme"
+import { addFilme, getFilmes, removeFilme, updateFilme } from "@/lib/filmes/filme"
 
 
 interface Filme {
@@ -75,6 +75,7 @@ export default function Page() {
             else 
                 await updateFilme(
                     id,
+                    nome,
                     diretor,
                     assunto,
                     classificacao_etaria
@@ -153,7 +154,102 @@ export default function Page() {
                         </h2>
 
                         <form onSubmit={handleSubmit}>
-                            
+                            <div className="spcae-y-4">
+                                <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                    <div>
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
+                                        >
+                                            Nome
+                                        </label>
+                                        <div className="mt-1">
+                                            <input 
+                                            type="text" 
+                                            name="nome" 
+                                            id="nome" 
+                                            value={nome}
+                                            onChange={(event) => setNome(event.target.value)}
+                                            required
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
+                                        >
+                                            diretor
+                                        </label>
+                                        <div className="mt-1">
+                                            <input 
+                                            type="text" 
+                                            name="diretor" 
+                                            id="diretor" 
+                                            value={diretor}
+                                            onChange={(event) => setDiretor(event.target.value)}
+                                            required
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
+                                        >
+                                            assunto
+                                        </label>
+                                        <div className="mt-1">
+                                            <input 
+                                            type="text" 
+                                            name="assunto" 
+                                            id="assunto" 
+                                            value={assunto}
+                                            onChange={(event) => setAssunto(event.target.value)}
+                                            required
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
+                                        >
+                                            classificacao etaria
+                                        </label>
+                                        <div className="mt-1">
+                                            <input 
+                                            type="text" 
+                                            name="classificacao_etaria" 
+                                            id="classificacao_etaria" 
+                                            value={classificacao_etaria}
+                                            onChange={(event) => setClassificacao_etaria(event.target.value)}
+                                            required
+                                            />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                
+                            </div>
+
+                            <div className="mt-6 flex items-center justify-end gap-x-6">
+                                    <button
+                                    type="button"
+                                    className="text-sm font-semibold text-gray-900"
+                                    onClick={closeModal}
+                                    >
+                                        Cancelar
+                                    </button>
+                                    <button
+                                    type="submit"
+                                    className="text-sm font-semibold text-gray-900"
+                                    >
+                                        Salvar
+                                        </button>
+    
+                            </div>
+
                         </form>
 
                     </div>

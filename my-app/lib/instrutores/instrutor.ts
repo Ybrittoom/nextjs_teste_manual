@@ -1,18 +1,18 @@
 'use server'
 import { pool } from "../db"
 export async function addInstrutores(
-       nome: string, 
-       especialidade: string,
-       data_nascimento: string,
-       endereco: string,
-       comum: string
+    nome: string, 
+    especialidade: string,
+    data_nascimento: string,
+    endereco: string,
+    comum: string
     
     ) {
     await pool.query(
-            `insert into instrutores(
+            `insert into instrutor(
                 nome,
                 especialidade,
-                data_nascimento,
+                data_de_nascimento,
                 endereco,
                 comum
         ) values (
@@ -33,7 +33,7 @@ export async function addInstrutores(
 }
 
         export async function getInstrutores() {
-            return (await pool.query (`select from instrutor`)).rows
+            return (await pool.query (`select * from instrutor`)).rows
 
         }
 
@@ -41,23 +41,23 @@ export async function addInstrutores(
             id: number,
             nome: string,
             especialidade: string,
-            data_nascimento: string,
+            data_nascimento: Date,
             endereco: string,
             comum: string = ''
         ) {
             await pool.query(
-                `UPDATE instrutor
-                    nome = '${nome}',
-                    especialidade = '${especialidade}',
-                    data_nascimento = '${data_nascimento}',
-                    endereco = '${endereco}',
-                    comum = '${comum}'
-                WHERE id = ${id}`,
+                `UPDATE instrutor SET 
+                    nome = $1, 
+                    especialidade = $2, 
+                    data_de_nascimento = $3, 
+                    endereco = $4, 
+                    comum = $5 
+                WHERE id = $6`,
                 [nome, especialidade, data_nascimento, endereco, comum, id]
             );
         }
         
 
         export async function removeInstrutor (id: number){
-            await pool.query (`delete from instrutor where id ${id}`);
+            await pool.query (`delete from instrutor where id = ${id}`);
         }
