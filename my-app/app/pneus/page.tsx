@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { addPneu } from "@/lib/pneus/pneu"
+import { addPneu, getPneus, removePneu, updatePneu } from "@/lib/pneus/pneu"
 
 interface Pneu {
     id: number;
@@ -157,6 +157,146 @@ export default function Page() {
                     </tbody>
                 </table>
             </div>
+
+            {/* Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-50 flex items-center justify-center">
+                    <div className="bg-white rounded-lg p-8 w-full max-w-md">
+                        <h2 className="text-base font-semibold text-gray-900 md-4">
+                            Novo Pneu
+                        </h2>
+
+                        <form onSubmit={handleSubmit}>
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-2">
+                                <div>
+                                    <label htmlFor=""
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        Marca
+                                    </label>
+                                    <div className="mt-1">
+                                        <input 
+                                        type="text" 
+                                        name="marca" 
+                                        id="marca" 
+                                        value={marca}
+                                        onChange={(event) => setMarca(event.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor=""
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        modelo
+                                    </label>
+                                    <div className="mt-1">
+                                        <input 
+                                        type="text" 
+                                        name="modelo" 
+                                        id="modelo" 
+                                        value={modelo}
+                                        onChange={(event) => setModelo(event.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor=""
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        largura
+                                    </label>
+                                    <div className="mt-1">
+                                        <input 
+                                        type="text" 
+                                        name="largura" 
+                                        id="largura" 
+                                        value={largura}
+                                        onChange={(event) => setLargura(event.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor=""
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        raio
+                                    </label>
+                                    <div className="mt-1">
+                                        <input 
+                                        type="text" 
+                                        name="raio" 
+                                        id="raio" 
+                                        value={raio}
+                                        onChange={(event) => setRaio(event.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor=""
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        especura
+                                    </label>
+                                    <div className="mt-1">
+                                        <input 
+                                        type="text" 
+                                        name="especura" 
+                                        id="especura" 
+                                        value={especura}
+                                        onChange={(event) => setEspecura(event.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor=""
+                                    className="block text-sm font-medium text-gray-900"
+                                    >
+                                        carga maxima
+                                    </label>
+                                    <div className="mt-1">
+                                        <input 
+                                        type="text" 
+                                        name="carga_maxima" 
+                                        id="carga_maxima" 
+                                        value={carga_maxima}
+                                        onChange={(event) => setCarga_maxima(event.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div className="mt-6 flex items-center justify-end gap-x-6">
+                                <button
+                                type="button"
+                                className="text-sm font-semibold text-gray-900"
+                                onClick={closeModal}
+                                >
+                                    Cancelar
+                                </button>
+                                <button
+                                type="submit"
+                                className="text-sm font-semibold text-gray-900"
+                                >
+                                    Salvar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
