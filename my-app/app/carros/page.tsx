@@ -3,7 +3,15 @@
 import { useEffect, useState } from "react"
 import { addCarro, getCarros, updateCarro, removeCarro } from "@/lib/carros/carro"
 
-//aqui ficara os imports
+interface Carro {
+    id: number;
+    Fabricante: string;
+    modelo: string;
+    ano_de_fabricacao: Date;
+    cor: string;
+    quilometros_rodados: number;
+}
+
 
 export default function Page() {
     

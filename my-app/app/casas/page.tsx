@@ -1,49 +1,50 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { addCasa, getCasa, updateCasa, removeCasa } from "@/lib/casas/casa"
+import { addCasa, updateCasa, getCasas, removeCasa } from "@/lib/casas/casa"
+
 interface Casa {
-    tipo: string,
-    endereco: string,
-    areaTerreno: number,
-    areaConstruida: number,
-    quartos: number,
-    banheiros: number,
-    edicula: boolean,
-    churrasqueira: boolean,
-    piscina: boolean,
-    valorCondominio: number,
-    precoVenda: number,
-    id: number,
+    id: number;
+    tipo: string;
+    endereco: string;
+    areaTerreno: number;
+    areaConstruida: number;
+    quartos: number;
+    banheiros: number;
+    edicula: boolean;
+    churrasqueira: boolean;
+    piscina: boolean;
+    valorCondominio: number;
+    precoVenda: number;
 }
+
 export default function Page() {
-    const [_tipo, setTipo] = useState('tipo');
-    const [_endereco, setEndereco] = useState('endereco');
-    const [_areaTerreno, setAreaTerreno] = useState(1);
-    const [_areaConstruida, setAreaConstruida] = useState(0);
-    const [_quartos, setQuartos] = useState(0);
-    const [_banheiros, setBanheiros] = useState(0);
-    const [_edicula, setEdicula] = useState(false);
-    const [_churrasqueira, setChurrasqueira] = useState(false);
-    const [_piscina, setPiscina] = useState(false);
-    const [_valorCondominio, setValorCondominio] = useState(0);
-    const [_precoVenda, setPrecoVenda] = useState(0);
-    const [_id, setId] = useState(0);
+    const [tipo, setTipo] = useState('tipo');
+    const [endereco, setEndereco] = useState('endereco');
+    const [areaTerreno, setAreaTerreno] = useState(0);
+    const [areaConstruida, setAreaConstruida] = useState(0);
+    const [quartos, setQuartos] = useState(0);
+    const [banheiros, setBanheiros] = useState(0);
+    const [edicula, setEdicula] = useState(false);
+    const [churrasqueira, setChurrasqueira] = useState(false);
+    const [piscina, setPiscina] = useState(false);
+    const [valorCondominio, setValorCondominio] = useState(0);
+    const [precoVenda, setPrecoVenda] = useState(0);
+    const [id, setId] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [casas, setCasas] = useState<Casa[]>([]);
 
-    
     const fetchCasa = async () => {
         try {
-            const data = await getCasa()
+            const data = await getCasas()
             setCasas(data)
         } catch (error) {
-            console.error('Erro fetching carros', error)
+            console.error('Erro fetching clientes', error)
         }
     }
 
     useEffect(() => {
-        fetchCasa().then(()=>{ return ;})
+        fetchCasa()
     }, [])
 
     const handleEdit = ({
@@ -61,28 +62,27 @@ export default function Page() {
         precoVenda
 
     }: Casa) => {
-        setTipo(tipo)
-        setEndereco(endereco)
-        setAreaTerreno(areaTerreno)
-        setAreaConstruida(areaConstruida)
-        setQuartos(quartos)
-        setBanheiros(banheiros)
-        setEdicula(edicula)
-        setChurrasqueira(churrasqueira)
-        setPiscina(piscina)
-        setValorCondominio(valorCondominio)
-        setPrecoVenda(precoVenda)
         setId(id)
-        setIsModalOpen(isModalOpen)
+        setTipo(tipo || '')
+        setEndereco(endereco || '')
+        setAreaTerreno(areaTerreno || 0)
+        setAreaConstruida(areaConstruida || 0)
+        setQuartos(quartos || 0)
+        setBanheiros(banheiros || 0)
+        setEdicula(!!edicula)
+        setChurrasqueira(!!churrasqueira)
+        setPiscina(!!piscina)
+        setValorCondominio(valorCondominio || 0)
+        setPrecoVenda(precoVenda || 0)
         setIsModalOpen(true)
     }
 
     const handleRemove = async ({
-        id
-    }: Casa) => {
-        await removeCasa(id)
-        fetchCasa()
-    }
+            id
+        }: Casa) => {
+            await removeCasa(id)
+            fetchCasa()
+        }
 
     const closeModal = () => {
         setIsModalOpen(false)
@@ -91,64 +91,65 @@ export default function Page() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         try {
-            if (_id === 0)
+            if(id === 0)
                 await addCasa(
-                    _tipo,
-                    _endereco,
-                    _areaTerreno,
-                    _areaConstruida,
-                    _quartos,
-                    _banheiros,
-                    _edicula,
-                    _churrasqueira,
-                    _piscina,
-                    _valorCondominio,
-                    _precoVenda
+                    tipo,
+                    endereco,
+                    areaTerreno,
+                    areaConstruida,
+                    quartos,
+                    banheiros,
+                    edicula,
+                    churrasqueira,
+                    piscina,
+                    valorCondominio,
+                    precoVenda
                 )
-            else
+            else 
                 await updateCasa(
-                    _id,
-                    _tipo,
-                    _endereco,
-                    _areaTerreno,
-                    _areaConstruida,
-                    _quartos,
-                    _banheiros,
-                    _edicula,
-                    _churrasqueira,
-                    _piscina,
-                    _valorCondominio,
-                    _precoVenda
+                    id,
+                    tipo,
+                    endereco,
+                    areaTerreno,
+                    areaConstruida,
+                    quartos,
+                    banheiros,
+                    edicula,
+                    churrasqueira,
+                    piscina,
+                    valorCondominio,
+                    precoVenda
                 )
+
             fetchCasa()
             closeModal()
         } catch (error) {
             console.error(' Erro adding casa:', error)
         }
     }
-
+    
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2x1 font-bold mb-4">Cadastro de Casa</h1>
+            <h1 className="text-2x1 font-bold mb-4">Casa</h1>
 
             <div className="mb-4">
                 <button
-                    onClick={() => handleEdit({
-                        id: 0,
-                        tipo: '',
-                        endereco: '',
-                        areaTerreno: 0,
-                        areaConstruida: 0,
-                        quartos: 0,
-                        banheiros: 0,
-                        edicula: false,
-                        churrasqueira: false,
-                        piscina: false,
-                        valorCondominio: 0,
-                        precoVenda: 0
-                    })}
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={() => handleEdit({
+                    id: 0,
+                    tipo: '',
+                    endereco: '',
+                    areaTerreno: 0,
+                    areaConstruida: 0,
+                    quartos: 0,
+                    banheiros: 0,
+                    edicula: false,
+                    churrasqueira: false,
+                    piscina: false,
+                    valorCondominio: 0,
+                    precoVenda: 0
+                })}
+                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     Adicionar nova Casa
                 </button>
@@ -166,21 +167,21 @@ export default function Page() {
                     <tbody>
                         {casas.map((casa) => (
                             <tr
-                                key={casa.id}
-                                className="hover:bg-gray-100 cursor-pointer"
+                            key={casa.id}
+                            className="hover:bg-gray-100 cursor-pointer"
                             >
                                 <td className="border px-4 py-2">{casa.tipo}</td>
                                 <td className="border px-4 py-2">{casa.endereco}</td>
                                 <td className="border px-4 py-2">
                                     <button
-                                        className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                        onClick={() => handleEdit(casa)}
+                                    className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    onClick={() => handleEdit(casa)}
                                     >
                                         Editar
                                     </button>
                                     <button
-                                        className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                        onClick={() => handleRemove(casa)}
+                                    className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    onClick={() => handleRemove(casa)}
                                     >
                                         Excluir
                                     </button>
@@ -194,220 +195,233 @@ export default function Page() {
             {/* Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-50 flex items-center justify-center">
-
                     <div className="bg-white rounded-lg p-8 w-full max-w-md">
                         <h2 className="text-base font-semibold text-gray-900 md-4">
                             Nova Casa
                         </h2>
 
                         <form onSubmit={handleSubmit}>
-                            <div className="spcae-y-4">
+                            <div className="space-y-4">
                                 <div className="grid grid-cols-1 gap-x-6 gap-y-2">
                                     <div>
-                                        <label htmlFor="tipo"
-                                            className="block text-sm font-medium text-gray-900"
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
                                         >
                                             Tipo
                                         </label>
                                         <div className="mt-1">
-                                            <input type="text"
-                                                value={_tipo}
-                                                onChange={(event) => setTipo(event.target.value)}
-                                                id="tipo"
-                                                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                                required />
+                                            <input 
+                                            type="text" 
+                                            name="tipo" 
+                                            id="tipo" 
+                                            value={tipo}
+                                            onChange={(event) => setTipo(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
-
                                     <div>
-                                        <label htmlFor="endereco"
-                                            className="block text-sm font-medium text-gray-900"
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
                                         >
                                             endereco
                                         </label>
                                         <div className="mt-1">
-                                            <input type="text"
-                                                value={_endereco}
-                                                onChange={(event) => setEndereco(event.target.value)}
-                                                id="endereco"
-                                                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                                required />
+                                            <input 
+                                            type="text" 
+                                            name="endereco" 
+                                            id="endereco" 
+                                            value={endereco}
+                                            onChange={(event) => setEndereco(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="AreaTerreno "
-                                            className="block text-sm font-medium text-gray-900"
+                                        <label htmlFor=""
+                                        className="block text-sm font-medium text-gray-900"
                                         >
-                                            Area Terreno
+                                            area Terreno
                                         </label>
                                         <div className="mt-1">
-                                            {JSON.stringify(_areaTerreno)}
-                                            <input type="number"
-                                                value={_areaTerreno || 0}
-                                                defaultValue={0}
-                                                onChange={(event) => {
-                                                    console.log(event.target.value);
-                                                    console.log(parseInt(event.target.value || '0'));
-                                                    setAreaTerreno(parseInt(event.target.value || '0'))
-                                                }}
-                                                id="AreaTerreno "
-                                                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                                required />
+                                            <input 
+                                            type="text" 
+                                            name="areaTerreno" 
+                                            id="areaTerreno" 
+                                            value={areaTerreno}
+                                            onChange={(event) => setAreaTerreno(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
-                                    {/* <div>
-                                        <label htmlFor="areaConstruida"
+                                    <div>
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
                                             area Construida
                                         </label>
                                         <div className="mt-1">
-                                            <input type="number" 
+                                            <input 
+                                            type="text" 
+                                            name="areaConstruida" 
+                                            id="areaConstruida" 
                                             value={areaConstruida}
-                                            onChange={(event) => setAreaConstruida(event.target.valueAsNumber)}
-                                            id="areaConstruida"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required/>
+                                            onChange={(event) => setAreaConstruida(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="quartos"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
                                             quartos
                                         </label>
                                         <div className="mt-1">
-                                            <input type="number" 
+                                            <input 
+                                            type="text" 
+                                            name="quartos" 
+                                            id="quartos" 
                                             value={quartos}
-                                            onChange={(event) => setQuartos(event.target.valueAsNumber)}
-                                            id="quartos"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required/>
+                                            onChange={(event) => setQuartos(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="banheiros"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
                                             banheiros
                                         </label>
                                         <div className="mt-1">
-                                            <input type="number" 
+                                            <input 
+                                            type="text" 
+                                            name="banheiros" 
+                                            id="banheiros" 
                                             value={banheiros}
-                                            onChange={(event) => setBanheiros(event.target.valueAsNumber)}
-                                            id="banheiros"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required/>
+                                            onChange={(event) => setBanheiros(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="edicula"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
                                             edicula
                                         </label>
                                         <div className="mt-1">
-                                            <input type="checkbox" 
+                                            <input 
+                                            type="checkbox" 
+                                            name="edicula" 
+                                            id="edicula" 
                                             checked={edicula}
                                             onChange={(event) => setEdicula(event.target.checked)}
-                                            id="edicula"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+                                            required
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="churrasqueira"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
                                             churrasqueira
                                         </label>
                                         <div className="mt-1">
-                                            <input type="checkbox" 
-                                            checked={churrasqueira}
-                                            onChange={(event) => setChurrasqueira(event.target.checked)}
-                                            id="churrasqueira"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+                                            <input 
+                                            type="text" 
+                                            name="churrasqueira" 
+                                            id="churrasqueira" 
+                                            value={churrasqueira}
+                                            onChange={(event) => setChurrasqueira(event.target.value)}
+                                            required
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="piscina"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
                                             piscina
                                         </label>
                                         <div className="mt-1">
-                                            <input type="checkbox" 
-                                            checked={piscina}
-                                            onChange={(event) => setPiscina(event.target.checked)}
-                                            id="piscina"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+                                            <input 
+                                            type="text" 
+                                            name="piscina" 
+                                            id="piscina" 
+                                            value={piscina}
+                                            onChange={(event) => setPiscina(event.target.value)}
+                                            required
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="valorCondominio"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
-                                            valor Condominio
+                                            valor do Condominio
                                         </label>
                                         <div className="mt-1">
-                                            <input type="number" 
+                                            <input 
+                                            type="text" 
+                                            name="valorCondominio" 
+                                            id="valorCondominio" 
                                             value={valorCondominio}
-                                            onChange={(event) => setValorCondominio(event.target.valueAsNumber)}
-                                            id="valorCondominio"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required/>
+                                            onChange={(event) => setValorCondominio(event.target.value)}
+                                            required
+                                            />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="precoVenda"
+                                        <label htmlFor=""
                                         className="block text-sm font-medium text-gray-900"
                                         >
-                                            preco Venda
+                                            preco de Venda
                                         </label>
                                         <div className="mt-1">
-                                            <input type="number" 
+                                            <input 
+                                            type="text" 
+                                            name="precoVenda" 
+                                            id="precoVenda" 
                                             value={precoVenda}
-                                            onChange={(event) => setPrecoVenda(event.target.valueAsNumber)}
-                                            id="precoVenda"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
-                                            required/>
+                                            onChange={(event) => setPrecoVenda(event.target.value)}
+                                            required
+                                            />
                                         </div>
-                                    </div> */}
-
+                                    </div>
 
                                 </div>
                             </div>
 
                             <div className="mt-6 flex items-center justify-end gap-x-6">
                                 <button
-                                    type="button"
-                                    className="text-sm font-semibold text-gray-900"
-                                    onClick={closeModal}
+                                type="button"
+                                className="text-sm font-semibold text-gray-900"
+                                onClick={closeModal}
                                 >
                                     Cancelar
                                 </button>
                                 <button
-                                    type="submit"
-                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                type="submit"
+                                className="text-sm font-semibold text-gray-900"
                                 >
                                     Salvar
                                 </button>
                             </div>
                         </form>
-                    </div>
 
+                    </div>
                 </div>
             )}
 

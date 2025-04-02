@@ -3,6 +3,20 @@
 import React, { useEffect, useState } from "react"
 import { addApartamento, getApe, updateApe, removeApe } from "@/lib/apartamento/apartamento"
 
+interface Apartamento {
+    id: number
+    tipo: string
+    condominio: string
+    area_privativa: number
+    area_comum: number
+    quantidade_de_quartos: number
+    quantidade_de_banheiros: number
+    tem_churrasqueira: boolean
+    tem_piscina: boolean
+    valor_do_condominio: number
+    preco_de_venda: number
+}
+
 export default function Page() {
     const [tipo, seTtipo] = useState('')
     const [condominio, setCondominio] = useState('')

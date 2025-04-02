@@ -4,6 +4,14 @@
 import { useEffect, useState } from "react"
 import { addHino, getHinos, removeHino, updateHino } from "@/lib/hino/hino"
 
+interface Hino {
+    id: number;
+    titulo: string;
+    numero: number;
+    letra: string;
+}
+
+
 export default function Page() {
     const [hinos, setHinos] = useState<Hino[]>([])
     const [isModalOpen, setIsModalOpen] = useState(false)

@@ -4,7 +4,7 @@ export async function addAluno(
     nome: string,
     nome_do_pai: string,
     nome_da_mae: string,
-    data_de_nascimento: Date,
+    data_de_nascimento: string,
     cor_da_pele: string
 ) {
     await pool.query(
@@ -37,21 +37,27 @@ export async function getAluno() {
 
 export async function updateAluno(
     id: number,
-    titulo: string,
-    numero: number,
-    letra: string
+    nome: string,
+    nome_do_pai: string,
+    nome_da_mae: string,
+    data_de_nascimento: string, // Mantenha como string por enquanto
+    cor_da_pele: string
 ) {
     await pool.query(
-        `update hino set 
-            titulo = '${titulo}',
-            letra = '${letra}',
-            numero = ${numero}
-        where id = ${id}`
-    )
+        `UPDATE aluno SET
+            nome = $2,
+            nome_do_pai = $3,
+            nome_da_mae = $4,
+            data_de_nascimento = $5,
+            cor_da_pele = $6
+        WHERE id = $1`,
+        [id, nome, nome_do_pai, nome_da_mae, data_de_nascimento, cor_da_pele]
+    );
 }
+
 
 export async function removeAluno(
     id: number
 ) {
-    await pool.query(`delete from hino where id = ${id}`)
+    await pool.query(`delete from aluno where id = ${id}`)
 }

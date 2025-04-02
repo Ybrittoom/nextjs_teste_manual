@@ -1,8 +1,16 @@
 'use client'
 
 
-import React, { use, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { addAnimal, getAnimais, updateAnimal, removeAnimal } from "@/lib/animais/animal"
+
+interface Animal {
+    id: number;
+    nome: string;
+    nomeCientifico: string;
+    especie: string;
+    grupo: string;
+}
 
 
 export default function Page() {

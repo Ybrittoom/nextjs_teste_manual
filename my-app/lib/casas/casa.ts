@@ -54,8 +54,12 @@ export async function addCasa(
 )
 } 
 
-export async function getCasa() {
+export async function getCasas() {
     return (await pool.query(`select * from casa`)).rows
+}
+
+export async function removeCasa(id: number) {
+    await pool.query(`delete from casa where id = $1`, [id]);
 }
 
 export async function updateCasa(
@@ -71,15 +75,21 @@ export async function updateCasa(
     piscina: boolean,
     valorcondominio: number,
     precovenda: number
-
 ) {
-    pool.query(
+    await pool.query(
         `update casa set
-            nome = $1,
-            nome_cientifico = $2,
-            especie = $3,
-            grupo = $4
-        where id = $5`,
+            tipo = $1,
+            endereco = $2,
+            areaterreno = $3,
+            areaconstruida = $4,
+            quartos = $5,
+            banheiros = $6,
+            edicula = $7,
+            churrasqueira = $8,
+            piscina = $9,
+            valorcondominio = $10,
+            precovenda = $11
+        where id = $12`,
         [
             tipo,
             endereco,
@@ -91,14 +101,9 @@ export async function updateCasa(
             churrasqueira,
             piscina,
             valorcondominio,
-            precovenda
+            precovenda,
+            id
         ]
-    )
-}
-
-export async function removeCasa(
-    id: number
-) {
-    await pool.query(`delete from casa where id = ${id}`)
+    );
 }
 
