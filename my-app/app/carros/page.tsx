@@ -49,9 +49,9 @@ export default function Page() {
 
         }: Carro) => {
             setId(id)
-            setFabricante(Fabricante)
+            setFabricante(Fabricante || '')
             setModelo(modelo)
-            setAno_de_fabricacao(ano_de_fabricacao)
+            setAno_de_fabricacao(ano_de_fabricacao || '')
             setCor(cor)
             setQuilometros_rodados(quilometros_rodados)
             setIsModalOpen(true)
@@ -106,9 +106,9 @@ export default function Page() {
                     id: 0,
                     Fabricante: '',
                     modelo: '',
-                    ano_de_fabricacao: Date,
+                    ano_de_fabricacao: new Date().toISOString().split("T")[0],
                     cor: '',
-                    quilometros_rodado: Number
+                    quilometros_rodado: 0
                 })}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >

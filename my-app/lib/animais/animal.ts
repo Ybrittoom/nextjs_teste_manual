@@ -28,7 +28,14 @@ export async function addAnimal(
 }
 
 export async function getAnimais() {
-    return (await pool.query(`select * from animais`)).rows
+    const result = await pool.query(`SELECT * FROM animais`)
+    return result.rows.map(animal => ({
+        id: animal.id,
+        nome: animal.nome,
+        nomeCientifico: animal.nome_cientifico,
+        especie: animal.especie,
+        grupo: animal.grupo
+    }))
 }
 
 export async function updateAnimal(

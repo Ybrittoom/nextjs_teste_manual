@@ -37,20 +37,28 @@ export async function getCarros() {
 
 export async function updateCarro(
     id: number,
-    Fabricante: string,
+    fabricante: string,
     modelo: string,
     ano_de_fabricacao: Date,
     cor: string,
-    quilometros_rodado: number 
+    quilometros_rodados: number 
 ) {
     await pool.query(
-        `update carro set
-            Fabricante = '${Fabricante}',
-            modelo = '${modelo}',
-            ano_de_fabricacao = ${ano_de_fabricacao},
-            cor = '${cor}',
-            quilometros_rodado = ${quilometros_rodado}
-        where id = ${id}`
+        `UPDATE carro SET
+            fabricante = $1,
+            modelo = $2,
+            ano_de_fabricacao = $3,
+            cor = $4,
+            quilometros_rodados = $5
+        WHERE id = $6`,
+        [
+            fabricante,
+            modelo,
+            ano_de_fabricacao,
+            cor,
+            quilometros_rodados,
+            id
+        ]
     )
 }
 

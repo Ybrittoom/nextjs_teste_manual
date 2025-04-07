@@ -80,7 +80,7 @@ export async function updateApe(
             tem_churrasqueira = ${tem_churrasqueira},
             tem_piscina = ${tem_piscina},
             valor_do_condominio = ${valor_do_condominio},
-            preco_de_vend = ${preco_de_venda}a
+            preco_de_venda = ${preco_de_venda}
         where id = ${id}`
     )
 }

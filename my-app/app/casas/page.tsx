@@ -247,11 +247,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="number" 
                                             name="areaTerreno" 
                                             id="areaTerreno" 
                                             value={areaTerreno}
-                                            onChange={(event) => setAreaTerreno(event.target.value)}
+                                            onChange={(event) => setAreaTerreno(Number(event.target.value))}
                                             required
                                             />
                                         </div>
@@ -265,11 +265,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="number" 
                                             name="areaConstruida" 
                                             id="areaConstruida" 
                                             value={areaConstruida}
-                                            onChange={(event) => setAreaConstruida(event.target.value)}
+                                            onChange={(event) => setAreaConstruida(Number(event.target.value))}
                                             required
                                             />
                                         </div>
@@ -283,11 +283,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="number" 
                                             name="quartos" 
                                             id="quartos" 
                                             value={quartos}
-                                            onChange={(event) => setQuartos(event.target.value)}
+                                            onChange={(event) => setQuartos(Number(event.target.value))}
                                             required
                                             />
                                         </div>
@@ -301,11 +301,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="number" 
                                             name="banheiros" 
                                             id="banheiros" 
                                             value={banheiros}
-                                            onChange={(event) => setBanheiros(event.target.value)}
+                                            onChange={(event) => setBanheiros(Number(event.target.value))}
                                             required
                                             />
                                         </div>
@@ -324,7 +324,6 @@ export default function Page() {
                                             id="edicula" 
                                             checked={edicula}
                                             onChange={(event) => setEdicula(event.target.checked)}
-                                            required
                                             />
                                         </div>
                                     </div>
@@ -337,12 +336,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="checkbox" 
                                             name="churrasqueira" 
                                             id="churrasqueira" 
-                                            value={churrasqueira}
-                                            onChange={(event) => setChurrasqueira(event.target.value)}
-                                            required
+                                            checked={churrasqueira}
+                                            onChange={(event) => setChurrasqueira(event.target.checked)}
                                             />
                                         </div>
                                     </div>
@@ -355,12 +353,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="checkbox" 
                                             name="piscina" 
                                             id="piscina" 
-                                            value={piscina}
-                                            onChange={(event) => setPiscina(event.target.value)}
-                                            required
+                                            checked={piscina}
+                                            onChange={(event) => setPiscina(event.target.checked)}
                                             />
                                         </div>
                                     </div>
@@ -373,11 +370,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="number" 
                                             name="valorCondominio" 
                                             id="valorCondominio" 
                                             value={valorCondominio}
-                                            onChange={(event) => setValorCondominio(event.target.value)}
+                                            onChange={(event) => setValorCondominio(Number(event.target.value))}
                                             required
                                             />
                                         </div>
@@ -391,11 +388,11 @@ export default function Page() {
                                         </label>
                                         <div className="mt-1">
                                             <input 
-                                            type="text" 
+                                            type="number" 
                                             name="precoVenda" 
                                             id="precoVenda" 
                                             value={precoVenda}
-                                            onChange={(event) => setPrecoVenda(event.target.value)}
+                                            onChange={(event) => setPrecoVenda(Number(event.target.value))}
                                             required
                                             />
                                         </div>

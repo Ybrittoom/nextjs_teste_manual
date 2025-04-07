@@ -14,10 +14,10 @@ interface Animal {
 
 
 export default function Page() {
-    const [nome, setNome] = useState('nome')
-    const [nomeCientifico, setNomeCientifico] = useState('nomeCientifico')
-    const [especie, setEspecie] = useState('especie')
-    const [grupo, setGrupo] = useState('grupo')
+    const [nome, setNome] = useState('')
+    const [nomeCientifico, setNomeCientifico] = useState('')
+    const [especie, setEspecie] = useState('')
+    const [grupo, setGrupo] = useState('')
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [id, setId] = useState(0)
     const [animais, setAnimais] = useState<Animal[]>([])
@@ -43,10 +43,10 @@ export default function Page() {
         grupo
     }: Animal) => {
         setId(id)
-        setNome(nome)
-        setNomeCientifico(nomeCientifico)
-        setEspecie(especie)
-        setGrupo(grupo)
+        setNome(nome || '')
+        setNomeCientifico(nomeCientifico || '')
+        setEspecie(especie || '')
+        setGrupo(grupo || '')
         setIsModalOpen(true)
     }
 
@@ -101,8 +101,7 @@ export default function Page() {
                     <tr>
                         <th className="border px-4 py-2">Nome</th>
                         <th className="border px-4 py-2">Nome cientifico</th>
-                        <th className="border px-4 py-2">Especie</th>
-                        <th className="border px-4 py-2">Grupo</th>
+                        <th className="border px-4 py-2">Açoes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -112,7 +111,7 @@ export default function Page() {
                         className="hover:bg-gray-100 cursor-pointer"
                         >
                             <td className="border px-4 py-2">{animal.nome}</td>
-                            <td className="border px-4 py-2">{animal.grupo}</td>
+                            <td className="border px-4 py-2">{animal.nomeCientifico}</td>
                             <td className="border px-4 py-2">
                                 <button
                                 className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

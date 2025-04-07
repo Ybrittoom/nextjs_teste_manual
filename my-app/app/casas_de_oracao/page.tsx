@@ -9,13 +9,13 @@ interface Casa_de_Oracao {
     nome: string;
     endereco: string;
     anciao: string;
-    telefoneAnciao: string;
+    telefone_anciao: string;
     cooperador: string;
-    telefoneCooperador: string;
-    cooperadorJovens: string;
-    telefoneCooperadorJovens: string;
+    telefone_cooperador: string;
+    cooperador_de_jovens: string;
+    telefone_cooperador_de_jovens: string;
     diacono: string;
-    telefoneDiacono: string;
+    telefone_diacono: string;
     ultimaSantaCeia: number;
 }
 
@@ -23,13 +23,13 @@ export default function Page() {
     const [nome, setNome] = useState('');
     const [endereco, setEndereco] = useState('');
     const [anciao, setAnciao] = useState('');
-    const [telefoneAnciao, setTelefoneAnciao] = useState('');
+    const [telefone_anciao, setTelefone_anciao] = useState('');
     const [cooperador, setCooperador] = useState('');
-    const [telefoneCooperador, setTelefoneCooperador] = useState('');
+    const [telefone_cooperador, setTelefone_cooperador] = useState('');
     const [cooperadorJovens, setCooperadorJovens] = useState('');
-    const [telefoneCooperadorJovens, setTelefoneCooperadorJovens] = useState('');
+    const [telefone_cooperador_de_Jovens, setTelefone_cooperador_de_jovens] = useState('');
     const [diacono, setDiacono] = useState('');
-    const [telefoneDiacono, setTelefoneDiacono] = useState('');
+    const [telefone_diacono, setTelefone_diacono] = useState('');
     const [ultimaSantaCeia, setUltimaSantaCeia] = useState(0);
     const [id, setId] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,13 +53,13 @@ export default function Page() {
         nome,
         endereco,
         anciao,
-        telefoneAnciao,
+        telefone_anciao,
         cooperador,
-        telefoneCooperador,
+        telefone_cooperador,
         cooperadorJovens,
-        telefoneCooperadorJovens,
+        telefone_cooperador_de_jovens,
         diacono,
-        telefoneDiacono,
+        telefone_diacono,
         ultimaSantaCeia
 
     }: Casa_de_Oracao) => {
@@ -67,20 +67,20 @@ export default function Page() {
         setNome(nome)
         setEndereco(endereco)
         setAnciao(anciao)
-        setTelefoneAnciao(telefoneAnciao)
+        setTelefone_anciao(telefone_anciao)
         setCooperador(cooperador)
-        setTelefoneCooperador(telefoneCooperador)
+        setTelefone_cooperador(telefone_cooperador)
         setCooperadorJovens(cooperadorJovens)
-        setTelefoneCooperadorJovens(telefoneCooperadorJovens)
+        setTelefone_cooperador_de_jovens(telefone_cooperador_de_jovens)
         setDiacono(diacono)
-        setTelefoneDiacono(telefoneDiacono)
+        setTelefone_diacono(telefone_diacono)
         setUltimaSantaCeia(ultimaSantaCeia)
         setIsModalOpen(true)
     }
 
     const handleRemove = async ({
             id
-        }: Cliente) => {
+        }: Casa_de_Oracao) => {
             await removeComum(id)
             fetchCasas_de_oracao()
         }
@@ -97,11 +97,11 @@ export default function Page() {
                     nome,
                     endereco,
                     anciao,
-                    telefoneAnciao,
+                    telefone_anciao,
                     cooperador,
-                    telefoneCooperador,
+                    telefone_cooperador,
                     cooperadorJovens,
-                    telefoneCooperadorJovens,
+                    telefone_cooperador_de_Jovens,
                     diacono,
                     telefoneDiacono,
                     ultimaSantaCeia
@@ -112,7 +112,7 @@ export default function Page() {
                     nome,
                     endereco,
                     anciao,
-                    telefoneAnciao,
+                    telefone_Anciao,
                     cooperador,
                     telefoneCooperador,
                     cooperadorJovens,
@@ -142,7 +142,7 @@ export default function Page() {
                     nome: '',
                     endereco: '',
                     anciao: '',
-                    telefoneAnciao: '',
+                    telefone_Anciao: '',
                     cooperador: '',
                     telefoneCooperador: '',
                     cooperadorJovens: '',
@@ -271,10 +271,10 @@ export default function Page() {
                                         <div>
                                             <input 
                                             type="text"
-                                            name="telefoneAnciao"
-                                            id="telefoneAnciao"
-                                            value={telefoneAnciao}
-                                            onChange={(event) => setTelefoneAnciao(event.target.value)}
+                                            name="telefone_Anciao"
+                                            id="telefone_Anciao"
+                                            value={telefone_Anciao}
+                                            onChange={(event) => setTelefone_Anciao(event.target.value)}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />

@@ -1,0 +1,49 @@
+Alunos:
+    ☐ 
+Animais:
+    ☐ Alterar nao carrega o campo nome cientifico.
+Apartamento:
+    ☐ Campos tem churrasqueira e tem piscina nao deveriam ser obrigatorios.
+    ☐ Alterar nao funciona
+Api:
+    ☐ 
+Carros:
+    ☐ Alterar nao funciona
+Casas:
+    ☐ Campos churrasqueira e piscina deveriam ser checkbox.
+    ☐ Campo edicula nao deveria ser obrigatorio
+    ☐ Campos area terreno, area construida, quartos, banheiros, valor condominio e preco de venda nao deveriam permitir digitar letras
+Casas_de_oracao:
+    ☐ Alterar nao carrega os campos telefone anciao, telefone cooperador, cooperador de jovens, telefone cooperador de jovens e telefone diacono.
+Clientes:
+    ☐ Alterar nao funciona
+    ☐ Nao carrega os dados no form de editar
+Computadores:
+    ☐ Alterar nao esta carregando os campos placa de video e placa mae
+Curriculo:
+    ☐ Alterar nao funciona
+Escola:
+    ☐ Campo quantidade nao deveria permitir letras
+    ☐ Alterar nao funciona
+Filmes:
+    ☐ Alterar nao funciona
+Hinos:
+    ☐ Alterar nao funciona
+Instrumentos:
+    ☐ Apresenta erros
+    ☐ Nao carrega os dados no form de editar
+Instrutores:
+    ✔ ok @done(25-04-05 11:34)
+Livros:
+    ☐ Campo de preco nap deveria permitir digitar letras
+Materias:
+    ☐ 
+Pneus:
+    ☐ Campos largura, raio e especura estao permitindo digitar letras.
+Produtos:
+    ☐ Alterar nao funciona
+    ☐ Nao carrega os dados no form de editar
+Professor:
+    ☐ 
+Usuarios:
+    ☐ 
