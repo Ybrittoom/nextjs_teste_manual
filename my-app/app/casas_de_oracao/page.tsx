@@ -103,7 +103,7 @@ export default function Page() {
                     cooperadorJovens,
                     telefone_cooperador_de_Jovens,
                     diacono,
-                    telefoneDiacono,
+                    telefone_diacono,
                     ultimaSantaCeia
                 )
             else 
@@ -112,13 +112,13 @@ export default function Page() {
                     nome,
                     endereco,
                     anciao,
-                    telefone_Anciao,
+                    telefone_anciao,
                     cooperador,
-                    telefoneCooperador,
+                    telefone_cooperador,
                     cooperadorJovens,
-                    telefoneCooperadorJovens,
+                    telefone_cooperador_de_Jovens,
                     diacono,
-                    telefoneDiacono,
+                    telefone_diacono,
                     ultimaSantaCeia
                 )
 
@@ -142,13 +142,13 @@ export default function Page() {
                     nome: '',
                     endereco: '',
                     anciao: '',
-                    telefone_Anciao: '',
+                    telefone_anciao: '',
                     cooperador: '',
-                    telefoneCooperador: '',
-                    cooperadorJovens: '',
-                    telefoneCooperadorJovens: '',
+                    telefone_cooperador: '',
+                    cooperador_de_jovens: '',
+                    telefone_cooperador_de_jovens: '',
                     diacono: '',
-                    telefoneDiacono: '',
+                    telefone_diacono: '',
                     ultimaSantaCeia: 0
                 })}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -196,7 +196,7 @@ export default function Page() {
 
             {/* Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center z-50">
+                <div className="fixed inset-0 z-10 overflow-y-auto bg-gray-500 bg-opacity-50 flex items-center justify-center">
                     <div className="bg-white rounded-lg p-8 w-full max-w-md">
                         <h2 className="text-base font-semibold text-gray-900 md-4">
                             Nova Casa de Oracao
@@ -273,8 +273,8 @@ export default function Page() {
                                             type="text"
                                             name="telefone_Anciao"
                                             id="telefone_Anciao"
-                                            value={telefone_Anciao}
-                                            onChange={(event) => setTelefone_Anciao(event.target.value)}
+                                            value={telefone_anciao}
+                                            onChange={(event) => setTelefone_anciao(event.target.value)}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
@@ -311,8 +311,8 @@ export default function Page() {
                                             type="text"
                                             name="telefoneCooperador"
                                             id="telefoneCooperador"
-                                            value={telefoneCooperador}
-                                            onChange={(event) => setTelefoneCooperador(event.target.value)}
+                                            value={telefone_cooperador}
+                                            onChange={(event) => setTelefone_cooperador(event.target.value)}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
@@ -349,8 +349,8 @@ export default function Page() {
                                             type="text"
                                             name="telefoneCooperadorJovens"
                                             id="telefoneCooperadorJovens"
-                                            value={telefoneCooperadorJovens}
-                                            onChange={(event) => setTelefoneCooperadorJovens(event.target.value)}
+                                            value={telefone_cooperador_de_Jovens}
+                                            onChange={(event) => setTelefone_cooperador_de_jovens(event.target.value)}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
@@ -387,8 +387,8 @@ export default function Page() {
                                             type="text"
                                             name="telefoneDiacono"
                                             id="telefoneDiacono"
-                                            value={telefoneDiacono}
-                                            onChange={(event) => setTelefoneDiacono(event.target.value)}
+                                            value={telefone_diacono}
+                                            onChange={(event) => setTelefone_diacono(event.target.value)}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
@@ -403,11 +403,11 @@ export default function Page() {
                                         </label>
                                         <div>
                                             <input 
-                                            type="text"
+                                            type="Number"
                                             name="ultimaSantaCeia"
                                             id="ultimaSantaCeia"
                                             value={ultimaSantaCeia}
-                                            onChange={(event) => setUltimaSantaCeia(event.target.value)}
+                                            onChange={(event) => setUltimaSantaCeia(Number(event.target.value))}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
