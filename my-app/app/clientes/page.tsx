@@ -7,19 +7,19 @@ interface Cliente {
     id: number;
     nome: string;
     endereco: string;
-    data_de_nascimento: string;
+    data_de_nascimento: Date;
     numero_de_telefone: string;
     email: string;
     CPF: string;
 }
 
 export default function Page() {
-    const [ nome, setNome] = useState('nome')
-    const [ endereco, setEndereco] = useState('endereço')
-    const [ data_de_nascimento, setDataDeNascimento] = useState('data')
-    const [ numero_de_telefone, setNumeroDeTelefone] = useState(0)  
-    const [ email, setEmail] = useState('email') 
-    const [ CPF, setCPF] = useState('CPF')
+    const [ nome, setNome] = useState('')
+    const [ endereco, setEndereco] = useState('')
+    const [ data_de_nascimento, setDataDeNascimento] = useState('')
+    const [ numero_de_telefone, setNumeroDeTelefone] = useState('')  
+    const [ email, setEmail] = useState('') 
+    const [ CPF, setCPF] = useState('')
     const [ isModalOpen, setIsModalOpen] = useState(false)
     const [ clientes, setClientes] = useState<Cliente[]>([])
     const [ id, setId] = useState(0)
@@ -27,6 +27,10 @@ export default function Page() {
     const fetchClientes = async () => {
         try {
             const data = await getClientes()
+            data.map((cliente) => {
+                cliente.data_de_nascimento = cliente.data_de_nascimento?.toISOString().split('T')[0] || ''
+                
+            })
             setClientes(data)
         } catch (error) {
             console.error('Erro fetching clientes', error)
@@ -47,13 +51,15 @@ export default function Page() {
         CPF
 
     }: Cliente) => {
+        console.log("Data de Nascimento recebida:", data_de_nascimento);
+        console.log("CPF recebido:", CPF);
         setId(id)
         setNome(nome)
         setEndereco(endereco)
         setDataDeNascimento(data_de_nascimento)
         setNumeroDeTelefone(numero_de_telefone)
         setEmail(email)
-        setCPF(CPF)
+        setCPF(CPF || '')
         setIsModalOpen(true)
     }
 

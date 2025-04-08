@@ -53,22 +53,22 @@ export async function updateCliente(
     CPF: string
 ) {
     await pool.query(
-        `update produto set
-            nome = '$1',
-            endereco = '$2',
-            data_de_nascimento = '$3',
-            numero_de_telefone = '$4',
-            email = '$5',
-            CPF = '$6'
+        `update cliente set
+            nome = $1,
+            endereco = $2,
+            data_de_nascimento = $3,
+            numero_de_telefone = $4,
+            email = $5,
+            CPF = $6
         where id = $7`,
         [
-            id,
             nome,
             endereco,
             data_de_nascimento,
             numero_de_telefone,
             email,
-            CPF
+            CPF,
+            id
         ]
     );
 }

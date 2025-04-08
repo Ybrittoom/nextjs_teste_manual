@@ -16,7 +16,7 @@ interface Casa_de_Oracao {
     telefone_cooperador_de_jovens: string;
     diacono: string;
     telefone_diacono: string;
-    ultimaSantaCeia: number;
+    numero_da_ultima_santa_ceia: number;
 }
 
 export default function Page() {
@@ -30,7 +30,7 @@ export default function Page() {
     const [telefone_cooperador_de_Jovens, setTelefone_cooperador_de_jovens] = useState('');
     const [diacono, setDiacono] = useState('');
     const [telefone_diacono, setTelefone_diacono] = useState('');
-    const [ultimaSantaCeia, setUltimaSantaCeia] = useState(0);
+    const [numero_da_ultima_santa_ceia, setNumero_da_ultima_santa_ceia] = useState(1);
     const [id, setId] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [casas_de_oracao, setCasas_de_oracao] = useState<Casa_de_Oracao[]>([])
@@ -56,25 +56,25 @@ export default function Page() {
         telefone_anciao,
         cooperador,
         telefone_cooperador,
-        cooperadorJovens,
+        cooperador_de_jovens,
         telefone_cooperador_de_jovens,
         diacono,
         telefone_diacono,
-        ultimaSantaCeia
+        numero_da_ultima_santa_ceia
 
     }: Casa_de_Oracao) => {
         setId(id)
-        setNome(nome)
-        setEndereco(endereco)
-        setAnciao(anciao)
-        setTelefone_anciao(telefone_anciao)
-        setCooperador(cooperador)
-        setTelefone_cooperador(telefone_cooperador)
-        setCooperadorJovens(cooperadorJovens)
-        setTelefone_cooperador_de_jovens(telefone_cooperador_de_jovens)
-        setDiacono(diacono)
-        setTelefone_diacono(telefone_diacono)
-        setUltimaSantaCeia(ultimaSantaCeia)
+        setNome(nome || '')
+        setEndereco(endereco || '')
+        setAnciao(anciao || '')
+        setTelefone_anciao(telefone_anciao || '')
+        setCooperador(cooperador || '')
+        setTelefone_cooperador(telefone_cooperador || '')
+        setCooperadorJovens(cooperador_de_jovens || '')
+        setTelefone_cooperador_de_jovens(telefone_cooperador_de_jovens || '')
+        setDiacono(diacono || '')
+        setTelefone_diacono(telefone_diacono || '')
+        setNumero_da_ultima_santa_ceia(numero_da_ultima_santa_ceia || 0)
         setIsModalOpen(true)
     }
 
@@ -104,7 +104,7 @@ export default function Page() {
                     telefone_cooperador_de_Jovens,
                     diacono,
                     telefone_diacono,
-                    ultimaSantaCeia
+                    numero_da_ultima_santa_ceia
                 )
             else 
                 await updateComum(
@@ -119,7 +119,7 @@ export default function Page() {
                     telefone_cooperador_de_Jovens,
                     diacono,
                     telefone_diacono,
-                    ultimaSantaCeia
+                    numero_da_ultima_santa_ceia
                 )
 
             fetchCasas_de_oracao()
@@ -149,7 +149,7 @@ export default function Page() {
                     telefone_cooperador_de_jovens: '',
                     diacono: '',
                     telefone_diacono: '',
-                    ultimaSantaCeia: 0
+                    numero_da_ultima_santa_ceia: 0
                 })}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
@@ -406,8 +406,8 @@ export default function Page() {
                                             type="Number"
                                             name="ultimaSantaCeia"
                                             id="ultimaSantaCeia"
-                                            value={ultimaSantaCeia}
-                                            onChange={(event) => setUltimaSantaCeia(Number(event.target.value))}
+                                            value={numero_da_ultima_santa_ceia}
+                                            onChange={(event) => setNumero_da_ultima_santa_ceia(event.target.valueAsNumber)}
                                             required
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
