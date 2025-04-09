@@ -10,7 +10,7 @@ interface Cliente {
     data_de_nascimento: Date;
     numero_de_telefone: string;
     email: string;
-    CPF: string;
+    cpf: string;
 }
 
 export default function Page() {
@@ -19,7 +19,7 @@ export default function Page() {
     const [ data_de_nascimento, setDataDeNascimento] = useState('')
     const [ numero_de_telefone, setNumeroDeTelefone] = useState('')  
     const [ email, setEmail] = useState('') 
-    const [ CPF, setCPF] = useState('')
+    const [ cpf, setCpf] = useState('')
     const [ isModalOpen, setIsModalOpen] = useState(false)
     const [ clientes, setClientes] = useState<Cliente[]>([])
     const [ id, setId] = useState(0)
@@ -28,8 +28,7 @@ export default function Page() {
         try {
             const data = await getClientes()
             data.map((cliente) => {
-                cliente.data_de_nascimento = cliente.data_de_nascimento?.toISOString().split('T')[0] || ''
-                
+                cliente.data_de_nascimento = cliente.data_de_nascimento?.toISOString().split('T')[0] || '';
             })
             setClientes(data)
         } catch (error) {
@@ -48,18 +47,18 @@ export default function Page() {
         data_de_nascimento,
         numero_de_telefone,
         email,
-        CPF
+        cpf
 
     }: Cliente) => {
         console.log("Data de Nascimento recebida:", data_de_nascimento);
-        console.log("CPF recebido:", CPF);
+        console.log("CPF recebido:", cpf);
         setId(id)
         setNome(nome)
         setEndereco(endereco)
         setDataDeNascimento(data_de_nascimento)
         setNumeroDeTelefone(numero_de_telefone)
         setEmail(email)
-        setCPF(CPF || '')
+        setCpf(cpf || '')
         setIsModalOpen(true)
     }
 
@@ -84,7 +83,7 @@ export default function Page() {
                     data_de_nascimento,
                     numero_de_telefone,
                     email,
-                    CPF
+                    cpf
                 )
             else 
                 await updateCliente(
@@ -94,7 +93,7 @@ export default function Page() {
                     data_de_nascimento,
                     numero_de_telefone,
                     email,
-                    CPF
+                    cpf
                 )
 
             fetchClientes()
@@ -118,7 +117,7 @@ return (
                 data_de_nascimento: '',
                 numero_de_telefone: '',
                 email: '',
-                CPF: ''
+                cpf: ''
             })}
             className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
@@ -275,8 +274,8 @@ return (
                                         type="text" 
                                         name="CPF" 
                                         id="CPF" 
-                                        value={CPF}
-                                        onChange={(event) => setCPF(event.target.value)}
+                                        value={cpf}
+                                        onChange={(event) => setCpf(event.target.value)}
                                         required
                                         />
                                     </div>
@@ -306,5 +305,5 @@ return (
         )}
 
     </div>
-  );
+    );
 }
