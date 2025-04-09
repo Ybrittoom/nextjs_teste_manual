@@ -38,7 +38,13 @@ export async function updateHino(
             titulo = $1,
             letra = $2,
             numero = $3
-        where id = ${id}`
+        where id = $4`,
+        [
+            titulo,
+            letra,
+            numero,
+            id
+        ]
     )
 }
 

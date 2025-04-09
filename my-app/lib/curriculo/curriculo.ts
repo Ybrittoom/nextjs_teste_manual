@@ -43,7 +43,7 @@ export async function updateCurriculo(
     habilidades: string
 ) {
     await pool.query(
-        `update produto set
+        `update curriculo set
             nome = $1,
             endereco = $2,
             curriculo = $3,

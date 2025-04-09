@@ -212,11 +212,11 @@ export default function Page() {
                                     </label>
                                     <div className="mt-1">
                                         <input 
-                                        type="text" 
+                                        type="number" 
                                         name="largura" 
                                         id="largura" 
                                         value={largura}
-                                        onChange={(event) => setLargura(event.target.value)}
+                                        onChange={(event) => setLargura(Number(event.target.value))}
                                         required
                                         />
                                     </div>
@@ -230,11 +230,11 @@ export default function Page() {
                                     </label>
                                     <div className="mt-1">
                                         <input 
-                                        type="text" 
+                                        type="number" 
                                         name="raio" 
                                         id="raio" 
                                         value={raio}
-                                        onChange={(event) => setRaio(event.target.value)}
+                                        onChange={(event) => setRaio(Number(event.target.value))}
                                         required
                                         />
                                     </div>
@@ -248,11 +248,11 @@ export default function Page() {
                                     </label>
                                     <div className="mt-1">
                                         <input 
-                                        type="text" 
+                                        type="number" 
                                         name="especura" 
                                         id="especura" 
                                         value={especura}
-                                        onChange={(event) => setEspecura(event.target.value)}
+                                        onChange={(event) => setEspecura(Number(event.target.value))}
                                         required
                                         />
                                     </div>
@@ -266,11 +266,11 @@ export default function Page() {
                                     </label>
                                     <div className="mt-1">
                                         <input 
-                                        type="text" 
+                                        type="number" 
                                         name="carga_maxima" 
                                         id="carga_maxima" 
                                         value={carga_maxima}
-                                        onChange={(event) => setCarga_maxima(event.target.value)}
+                                        onChange={(event) => setCarga_maxima(Number(event.target.value))}
                                         required
                                         />
                                     </div>

@@ -17,26 +17,26 @@ erros:
     Casas_de_oracao:
         ✔ Alterar nao carrega os campos telefone anciao, telefone cooperador, cooperador de jovens, telefone cooperador de jovens e telefone diacono. @done(25-04-08 17:25)
     Clientes:
-        ☐ Alterar nao funciona
-        ☐ Nao carrega os dados no form de editar
+        ✔ Alterar nao funciona @done(25-04-09 13:45)
+        ✔ Nao carrega os dados no form de editar @done(25-04-09 13:45)
     Computadores:
-        ☐ Alterar nao esta carregando os campos placa de video e placa mae
+        ✔ Alterar nao esta carregando os campos placa de video e placa mae @done(25-04-09 15:58)
     Curriculo:
-        ☐ Alterar nao funciona
+        ✔ Alterar nao funciona @done(25-04-09 16:08)
     Escola:
-        ☐ Campo quantidade nao deveria permitir letras
-        ☐ Alterar nao funciona
+        ✔ Campo quantidade nao deveria permitir letras @done(25-04-09 17:19)
+        ✔ Alterar nao funciona @done(25-04-09 17:19)
     Filmes:
-        ☐ Alterar nao funciona
+        ✔ Alterar nao funciona @done(25-04-09 17:25)
     Hinos:
-        ☐ Alterar nao funciona
+        ✔ Alterar nao funciona @done(25-04-09 17:29)
     Instrumentos:
-        ☐ Apresenta erros
-        ☐ Nao carrega os dados no form de editar
+        ✔ Apresenta erros @started(25-04-09 17:31) @done(25-04-09 17:31) @lasted(45s)
+        ✔ Nao carrega os dados no form de editar @done(25-04-09 17:31)
     Instrutores:
         ✔ ok @done(25-04-05 11:34)
     Livros:
-        ☐ Campo de preco nap deveria permitir digitar letras
+        ✔ Campo de preco nap deveria permitir digitar letras @done(25-04-09 17:38)
     Materias:
         ☐ 
     Pneus:

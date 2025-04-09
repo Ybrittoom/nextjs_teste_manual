@@ -16,7 +16,7 @@ export default function Page() {
     const [nome, setNome] = useState('')
     const [endereco, setEndereco] = useState('')
     const [quantidadeAlunos, setQuantidadeAlunos] = useState(0) 
-    const [telefone, setTelefone] = useState('numero de telefone')
+    const [telefone, setTelefone] = useState('')
     const [id, setId] = useState(0)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [escolas, setEscolas] = useState<Escola[]>([])
@@ -73,6 +73,7 @@ export default function Page() {
             else 
                 await updateEscolas(
                     id,
+                    nome,
                     endereco,
                     quantidadeAlunos,
                     telefone
@@ -164,6 +165,7 @@ export default function Page() {
                                         id="nome" 
                                         value={nome}
                                         onChange={(event) => setNome(event.target.value)}
+className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
                                         required
                                         />
                                     </div>
@@ -182,6 +184,7 @@ export default function Page() {
                                         id="endereco" 
                                         value={endereco}
                                         onChange={(event) => setEndereco(event.target.value)}
+                                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
                                         required
                                         />
                                     </div>
@@ -199,7 +202,8 @@ export default function Page() {
                                         name="quantidadeAlunos" 
                                         id="quantidadeAlunos" 
                                         value={quantidadeAlunos}
-                                        onChange={(event) => setQuantidadeAlunos(event.target.value)}
+                                        onChange={(event) => setQuantidadeAlunos(Number(event.target.value))}
+                                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
                                         required
                                         />
                                     </div>
@@ -218,6 +222,7 @@ export default function Page() {
                                         id="telefone" 
                                         value={telefone}
                                         onChange={(event) => setTelefone(event.target.value)}
+                                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
                                         required
                                         />
                                     </div>

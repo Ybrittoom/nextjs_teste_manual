@@ -8,8 +8,8 @@ interface Computador {
     descricao: string,
     cpu: string,
     memoria: string,
-    placaVideo: string,
-    placaMae: string,
+    placa_video: string,
+    placa_mae: string,
     fonte: string,
     armazenamento: string
 }
@@ -18,8 +18,8 @@ export default function Page() {
     const [descricao, setDescricao] = useState('')
     const [cpu, setCpu] = useState('')
     const [memoria, setMemoria] = useState('')
-    const [placaVideo, setPlacaVideo] = useState('')
-    const [placaMae, setPlacaMae] = useState('')
+    const [placa_video, setPlaca_video] = useState('')
+    const [placa_mae, setPlaca_mae] = useState('')
     const [fonte, setFonte] = useState('')
     const [armazenamento, setArmazenamento] = useState('')
     const [id, setId] = useState(0)
@@ -44,17 +44,19 @@ export default function Page() {
         descricao,
         cpu,
         memoria,
-        placaVideo,
-        placaMae,
+        placa_video,
+        placa_mae,
         fonte,
         armazenamento
     }: Computador) => {
+        console.log(placa_video)
+        console.log(placa_mae)
         setId(id)
         setDescricao(descricao || '')
         setCpu(cpu || '')
         setMemoria(memoria || '')
-        setPlacaVideo(placaVideo || '')
-        setPlacaMae(placaMae || '')
+        setPlaca_video(placa_video || '')
+        setPlaca_mae(placa_mae || '')
         setFonte(fonte || '')
         setArmazenamento(armazenamento || '')
         setIsModalOpen(true)
@@ -79,8 +81,8 @@ export default function Page() {
                     descricao,
                     cpu,
                     memoria,
-                    placaVideo,
-                    placaMae,
+                    placa_video,
+                    placa_mae,
                     fonte,
                     armazenamento
                 )
@@ -90,8 +92,8 @@ export default function Page() {
                     descricao,
                     cpu,
                     memoria,
-                    placaVideo,
-                    placaMae,
+                    placa_video,
+                    placa_mae,
                     fonte,
                     armazenamento
                 )
@@ -113,8 +115,8 @@ export default function Page() {
                     descricao: '',
                     cpu: '',
                     memoria: '',
-                    placaVideo: '',
-                    placaMae: '',
+                    placa_video: '',
+                    placa_mae: '',
                     fonte: '',
                     armazenamento: ''
                 })}
@@ -237,8 +239,8 @@ export default function Page() {
                                             type="text"
                                             name="placa_de_video"
                                             id="placa_de_video"
-                                            value={placaVideo}
-                                            onChange={(event) => setPlacaVideo(event.target.value)}
+                                            value={placa_video}
+                                            onChange={(event) => setPlaca_video(event.target.value)}
                                             required
                                             />
                                         </div>
@@ -255,8 +257,8 @@ export default function Page() {
                                             type="text"
                                             name="placaMae"
                                             id="placaMae"
-                                            value={placaMae}
-                                            onChange={(event) => setPlacaMae(event.target.value)}
+                                            value={placa_mae}
+                                            onChange={(event) => setPlaca_mae(event.target.value)}
                                             required
                                             />
                                         </div>

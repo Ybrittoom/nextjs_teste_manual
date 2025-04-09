@@ -28,6 +28,9 @@ export default function Page() {
     const fetchLIvro = async () => {
         try {
             const data = await getLivros()
+            data.map((livro) => {
+                livro.data_de_lancamento = livro.data_de_lancamento?.toISOString().split('T')[0] || '';
+            })
             setLivros(data)
         } catch (error) {
             console.error('Erro fetching livro', error)
@@ -271,7 +274,7 @@ export default function Page() {
                                             name="preco_sugerido" 
                                             id="preco_sugerido" 
                                             value={preco_sugerido}
-                                            onChange={(event) => setPreco_sugerido(event.target.value)}
+                                            onChange={(event) => setPreco_sugerido(Number(event.target.value))}
                                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                             />
                                         </div>
