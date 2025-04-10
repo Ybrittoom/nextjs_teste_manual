@@ -38,9 +38,9 @@ erros:
     Livros:
         ✔ Campo de preco nap deveria permitir digitar letras @done(25-04-09 17:38)
     Materias:
-        ☐ 
+        ✔ @done(25-04-09 17:40)
     Pneus:
-        ☐ Campos largura, raio e especura estao permitindo digitar letras.
+        ✔ Campos largura, raio e especura estao permitindo digitar letras. @done(25-04-09 17:44)
     Produtos:
         ☐ Alterar nao funciona
         ☐ Nao carrega os dados no form de editar

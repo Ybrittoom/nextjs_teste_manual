@@ -3,6 +3,14 @@
 import { addProduto, getProdutos, removeProduto, updateProdutos } from "@/lib/produtos/produtos"
 import { useEffect, useState } from "react"
 
+interface Produto {
+    id: number
+    nome: string
+    valorUnitario: number
+    validade: string
+    descricao: string
+}
+
 export default function Page() {
     const [ nome, setNome] =  useState('nome produto')
     const [ valorUnitario, setValorUnitario] = useState(0)
