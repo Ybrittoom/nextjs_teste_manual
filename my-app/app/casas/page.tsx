@@ -7,15 +7,15 @@ interface Casa {
     id: number;
     tipo: string;
     endereco: string;
-    areaTerreno: number;
-    areaConstruida: number;
+    areaterreno: number;
+    areaconstruida: number;
     quartos: number;
     banheiros: number;
     edicula: boolean;
     churrasqueira: boolean;
     piscina: boolean;
-    valorCondominio: number;
-    precoVenda: number;
+    valorcondominio: number;
+    precovenda: number;
 }
 
 export default function Page() {
@@ -51,17 +51,18 @@ export default function Page() {
         id,
         tipo,
         endereco,
-        areaTerreno,
-        areaConstruida,
+        areaterreno,
+        areaconstruida,
         quartos,
         banheiros,
         edicula,
         churrasqueira,
         piscina,
-        valorCondominio,
-        precoVenda
+        valorcondominio,
+        precovenda
 
     }: Casa) => {
+        console.log(casas)
         setId(id)
         setTipo(tipo || '')
         setEndereco(endereco || '')
@@ -139,15 +140,15 @@ export default function Page() {
                     id: 0,
                     tipo: '',
                     endereco: '',
-                    areaTerreno: 0,
-                    areaConstruida: 0,
+                    areaterreno: 0,
+                    areaconstruida: 0,
                     quartos: 0,
                     banheiros: 0,
                     edicula: false,
                     churrasqueira: false,
                     piscina: false,
-                    valorCondominio: 0,
-                    precoVenda: 0
+                    valorcondominio: 0,
+                    precovenda: 0
                 })}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >

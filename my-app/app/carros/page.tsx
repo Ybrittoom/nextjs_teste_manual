@@ -5,9 +5,9 @@ import { addCarro, getCarros, updateCarro, removeCarro } from "@/lib/carros/carr
 
 interface Carro {
     id: number;
-    Fabricante: string;
+    fabricante: string;
     modelo: string;
-    ano_de_fabricacao: Date;
+    ano_de_fabricacao: number;
     cor: string;
     quilometros_rodados: number;
 }
@@ -18,10 +18,9 @@ export default function Page() {
     //aqui ficara as constantes
     const [Fabricante, setFabricante] = useState('')
     const [modelo, setModelo] = useState('')
-    const [ano_de_fabricacao, setAno_de_fabricacao] = useState('')
+    const [ano_de_fabricacao, setAno_de_fabricacao] = useState(0)
     const [cor, setCor] = useState('')
     const [quilometros_rodados, setQuilometros_rodados] = useState(0)    
-
     const [id, setId] = useState(0)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [carros, setCarros] = useState<Carro[]>([])
@@ -41,7 +40,7 @@ export default function Page() {
     
         const handleEdit = ({
             id,
-            Fabricante,
+            fabricante,
             modelo,
             ano_de_fabricacao,
             cor,
@@ -49,9 +48,9 @@ export default function Page() {
 
         }: Carro) => {
             setId(id)
-            setFabricante(Fabricante || '')
+            setFabricante(fabricante || '')
             setModelo(modelo)
-            setAno_de_fabricacao(ano_de_fabricacao || '')
+            setAno_de_fabricacao(ano_de_fabricacao || 0)
             setCor(cor)
             setQuilometros_rodados(quilometros_rodados)
             setIsModalOpen(true)
@@ -104,11 +103,11 @@ export default function Page() {
                 <button
                 onClick={() => handleEdit({
                     id: 0,
-                    Fabricante: '',
+                    fabricante: '',
                     modelo: '',
-                    ano_de_fabricacao: new Date().toISOString().split("T")[0],
+                    ano_de_fabricacao: 0,
                     cor: '',
-                    quilometros_rodado: 0
+                    quilometros_rodados: 0
                 })}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
@@ -204,9 +203,9 @@ export default function Page() {
                                         Ano de Fabricaçao
                                     </label>
                                     <div className="mt-1">
-                                        <input type="date" 
+                                        <input type="number" 
                                         value={ano_de_fabricacao}
-                                        onChange={(event) => setAno_de_fabricacao(event.target.value)}
+                                        onChange={(event) => setAno_de_fabricacao(Number(event.target.value))}
                                         required/>
                                     </div>
                                 </div>
@@ -238,7 +237,7 @@ export default function Page() {
                                     <div className="mt-1">
                                         <input type="number" 
                                         value={quilometros_rodados}
-                                        onChange={(event) => setQuilometros_rodados(event.target.value)}
+                                        onChange={(event) => setQuilometros_rodados(Number(event.target.value))}
                                         required/>
                                     </div>
                                 </div>

@@ -4,14 +4,14 @@ import { pool } from "../db"
 export async function addCarro(
     fabricante: string, 
     modelo: string, 
-    ano_de_fabricaçao: Date, 
+    ano_de_fabricaçao: number, 
     cor: string, 
     quilometros_rodados: number
 ) {
     await pool.query(`insert into carro( 
         fabricante, 
         modelo, 
-        ano_de_fabricaçao, 
+        ano_de_fabricacao, 
         cor, 
         quilometros_rodados
     )   values (
@@ -39,7 +39,7 @@ export async function updateCarro(
     id: number,
     fabricante: string,
     modelo: string,
-    ano_de_fabricacao: Date,
+    ano_de_fabricacao: number,
     cor: string,
     quilometros_rodados: number 
 ) {

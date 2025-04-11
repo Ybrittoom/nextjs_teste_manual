@@ -1,6 +1,6 @@
 erros:
     Alunos:
-        ☐ 
+        ✔ @done(25-04-11 16:07)
     Animais:
         ✔ Alterar nao carrega o campo nome cientifico. @done(25-04-08 15:59)
     Apartamento:
@@ -10,10 +10,20 @@ erros:
         ✔ ☐ @done(25-04-08 16:00)
     Carros:
         ✔ Alterar nao funciona @done(25-04-08 16:00)
+        ✔ campo ano de fabricacao nao e data, somente numero @done(25-04-11 16:35)
+        Campos nao carregam para editar:
+            ✔ fabricante @done(25-04-11 16:35)
+            ✔ ano de fabricacao @done(25-04-11 16:36)
     Casas:
         ✔ Campos churrasqueira e piscina deveriam ser checkbox. @done(25-04-08 16:00)
         ✔ Campo edicula nao deveria ser obrigatorio @done(25-04-08 16:00)
         ✔ Campos area terreno, area construida, quartos, banheiros, valor condominio e preco de venda nao deveriam permitir digitar letras @done(25-04-08 16:00)
+        Campos nao carregam para editar:
+            ✔ area terreno @done(25-04-11 17:29)
+            ✔ area construida @done(25-04-11 17:29)
+            ✔ valor condominio @done(25-04-11 17:29)
+            ✔ preco de venda @done(25-04-11 17:29)
+        
     Casas_de_oracao:
         ✔ Alterar nao carrega os campos telefone anciao, telefone cooperador, cooperador de jovens, telefone cooperador de jovens e telefone diacono. @done(25-04-08 17:25)
     Clientes:
@@ -26,6 +36,7 @@ erros:
     Escola:
         ✔ Campo quantidade nao deveria permitir letras @done(25-04-09 17:19)
         ✔ Alterar nao funciona @done(25-04-09 17:19)
+        ✔ campo quantidade de alunos nao carrega para editar @done(25-04-11 17:36)
     Filmes:
         ✔ Alterar nao funciona @done(25-04-09 17:25)
     Hinos:
@@ -42,9 +53,9 @@ erros:
     Pneus:
         ✔ Campos largura, raio e especura estao permitindo digitar letras. @done(25-04-09 17:44)
     Produtos:
-        ☐ Alterar nao funciona
-        ☐ Nao carrega os dados no form de editar
+        ✔ Alterar nao funciona @done(25-04-11 13:39)
+        ✔ Nao carrega os dados no form de editar @done(25-04-11 16:06)
     Professor:
-        ☐ 
+        ✔ @done(25-04-11 16:07)
     Usuarios:
-        ☐ 
+        ✔ @done(25-04-11 16:07)

@@ -24,7 +24,11 @@ export default function Page() {
     const fetchEscolas = async () => {
         try {
             const data = await getEscolas()
-            setEscolas(data)
+            const escolasMapeadas = data.map((escola: any) => ({
+                ...escola,
+                quantidadeAlunos: escola.quantidade_de_alunos // converte para camelCase
+            }))
+            setEscolas(escolasMapeadas)
         } catch (error) {
             console.error('Erro fetching escolas', error)
         }

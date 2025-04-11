@@ -3,15 +3,15 @@ import { pool } from "../db"
 export async function addCasa(
     tipo: string, 
     endereco: string, 
-    areaterreno: number, 
-    areaconstruida: number, 
+    areaTerreno: number, 
+    areaConstruida: number, 
     quartos: number, 
     banheiros: number, 
     edicula: boolean, 
     churrasqueira: boolean, 
     piscina: boolean, 
-    valorcondominio: number, 
-    precovenda: number
+    valorCondominio: number, 
+    precoVenda: number
 ) {
     await pool.query(`insert into casa (
         tipo, 
@@ -41,15 +41,15 @@ export async function addCasa(
     [
         tipo,
         endereco,
-        areaterreno,
-        areaconstruida,
+        areaTerreno,
+        areaConstruida,
         quartos,
         banheiros,
         edicula,
         churrasqueira,
         piscina,
-        valorcondominio,
-        precovenda
+        valorCondominio,
+        precoVenda
     ]    
 )
 } 
