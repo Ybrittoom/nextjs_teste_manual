@@ -6,8 +6,8 @@ import { useEffect, useState } from "react"
 interface Produto {
     id: number
     nome: string
-    valorUnitario: number
-    validade: string
+    valor_unitario: number
+    validade: Date
     descricao: string
 }
 
@@ -15,7 +15,7 @@ export default function Page() {
     const [ nome, setNome] =  useState('nome produto')
     const [ valorUnitario, setValorUnitario] = useState(0)
     const [ validade, setValidade] = useState('') 
-    const [descricao, setDescricao] = useState('Descriçao')
+    const [descricao, setDescricao] = useState('')
     const [id, setId] = useState(0)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -23,6 +23,10 @@ export default function Page() {
     const fetchProdutos = async () => {
         try {
             const data = await getProdutos()
+            data.map((produto) => {
+                produto.validade = produto.validade?.toISOString().split('T')[0] || '';
+                produto.valorUnitario = Number(produto.valor_unitario);
+            })
             setProdutos(data)
         } catch (error) {
             console.error('Erro fetching produto', error)
@@ -36,14 +40,15 @@ export default function Page() {
     const handleEdit = ({
         id,
         nome,
-        valorUnitario,
+        valor_unitario,
         validade,
         descricao
 
     }: Produto) => {
+        console.log("Produto para edição:", produtos)
         setId(id)
         setNome(nome)
-        setValorUnitario(valorUnitario)
+        setValorUnitario(valor_unitario || 0)
         setValidade(validade)
         setDescricao(descricao)
         setIsModalOpen(true)
@@ -121,7 +126,7 @@ export default function Page() {
                             className="hover:bg-gray-100 cursor-pointer"
                             >
                                 <td className="border px-4 py-2">{produto.nome}</td>
-                                <td className="border px-4 py-2">{produto.valorUnitario}</td>
+                                <td className="border px-4 py-2">{produto.valor_unitario}</td>
                                 <td className="border px-4 py-2">
                                     <button 
                                     className="rounded-mb bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -179,7 +184,7 @@ export default function Page() {
                                         <div className="mt-1">
                                             <input type="number" 
                                             value={valorUnitario}
-                                            onChange={(event) => setValorUnitario(event.target.value)}
+                                            onChange={(event) => setValorUnitario(Number(event.target.value))}
                                             id="valor_unitario"
                                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
                                             required
